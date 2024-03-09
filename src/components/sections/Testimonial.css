@@ -1,0 +1,97 @@
+/* .testi-bg{
+    background: linear-gradient(rgba(0, 0, 0, 0.614),rgba(0, 0, 0, 0.674)), url(../../../public/images/bg/testi-bg2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+}
+.testi-bg .sect-title{
+    color: white !important;
+} */
+.testi-img{
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border: 5px solid white;
+    margin-right: 40px;
+    box-shadow: 0px 0px 4px rgb(116, 116, 116);
+    margin-top: 10px;
+}
+.reviews-box{
+    position: relative;
+    width: calc(100% - 105px);
+    padding: 40px;
+    background: white;
+    box-shadow: 0px 4px 16px 0px rgb(0 0 0 / 6%);
+}
+.reviews-box::before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-width: 20px 20px 12px 0;
+    border-style: solid;
+    border-color: transparent #fff transparent #fff;
+    z-index: 1;
+    left: -20px;
+    top: 30px;
+}
+.testi-words{
+    font-size: 21px;
+    color: rgb(107, 106, 106);
+    line-height: 1.4;
+    letter-spacing: 0;
+}
+.testi-name-box{
+    width: 100%;
+    position: relative;
+    margin-top: 31px;
+}
+.testi-name-box::before{
+    position: absolute;
+    content: "";
+    top: 10px;
+    width: 50px;
+    height: 3px;
+    left: -60px;
+    background-color: var(--primry-clr);
+}
+.testi-name-box i{
+    position: absolute;
+    right: 40px;
+    color: var(--primry-clr);
+    top: 0;
+    font-size: 60px;
+}
+.testi-name{
+    font-size: 22px;
+    font-weight: 600;
+    color: black;
+    line-height: 1;
+    margin-bottom: 2px;
+}
+.testi-position{
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primry-clr);
+    text-transform: uppercase;
+}
+@media (max-width: 768px) {
+    .testi-img{
+        width: 50px;
+        height: 50px;
+        border: 3px solid white;
+        margin-right: 30px;
+        margin-top: 19px;
+    }
+    .testi-words{
+        font-size: 16px;
+    }
+    .reviews-box{
+        padding: 25px;
+        width: calc(100% - 80px);
+    }
+    .testi-name-box i{
+        font-size: 35px;
+    }
+}

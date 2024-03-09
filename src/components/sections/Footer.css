@@ -1,0 +1,198 @@
+.Footer-top{
+    width: 100%;
+    padding-top: 100px;
+    border-top: 1px solid rgb(218, 216, 216);
+}
+.footer-main{
+    background: black;
+    padding-top: 22px;
+}
+.ft-logo-box{
+    width: 100%;
+    padding: 40px;
+    background: var(--primry-clr);
+    border-top-left-radius: 50px;
+    margin-top: -100px;
+    border: 1px solid var(--primry-clr);
+}
+@media (max-width: 767px) {
+    .ft-logo-box{
+        margin-top: 10px;
+    }
+}
+.ft-logo-box p{
+    color: #cfcfcf;
+}
+.ft-logo-box .read-more-btn{
+    font-size: 16px;
+    color: white;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid white;
+    width: fit-content;
+}
+.ft-logo-box .read-more-btn .line{
+    width: 5px;
+    height: 2px;
+    background: white;
+    transition: all 350ms ease-in-out;
+    margin-left:6px;
+    margin-right: -5px;
+}
+.ft-logo-box .read-more-btn i{
+    font-size: 13px;
+    color: white;
+    text-decoration: none;
+}
+.ft-logo-box .read-more-btn:hover .line{
+    width: 30px;
+}
+.ft-logo{
+    /* max-width: 210px;
+    height: auto; */
+    margin-bottom: 18px;
+    display: block;
+    font-size: 28px;
+    color: white;
+    line-height: 1.1;
+    font-weight: 700;
+}
+.ft-logo img{
+    max-width: 100%;
+}
+.ft-logo-box .social-icn-common{
+    display: flex;
+    gap: 25px;
+    margin-top: 40px;
+}
+.ft-logo-box .social-icn-common li a{
+    font-size: 21px;
+    color: white;
+}
+.copy-box{
+    width: 100%;
+    padding: 25px 0;
+    border-top: 1px solid rgba(236, 234, 234, 0.639);
+    margin-top: 60px;
+}
+.copy-right-text{
+    font-size: 14px;
+    color: white;
+    text-align: center;
+}
+.copy-right-text a{
+    font-weight: 800;
+    margin-left: 10px;
+    text-decoration: underline;
+    transition: all 400ms;
+    color: var(--primry-clr);
+}
+.footer-widget{
+    width: 100%;
+}
+.footer-widget .title-ft{
+    font-size: 20px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    position: relative;
+    width: fit-content;
+    margin-bottom: 32px;
+}
+.footer-widget .title-ft::before{
+    content: '';
+    position: absolute;
+    left: 16px;
+    bottom: -4px;
+    width: 54%;
+    height: 3px;
+    background: var(--primry-clr);
+}
+.footer-widget .title-ft::after{
+    content: '';
+    position: absolute;
+    left: 0px;
+    bottom: -6px;
+    height: 8px;
+    width: 8px;
+    background: rgba(255, 0, 0, 0.961);
+    border-radius: 50%;
+    box-shadow: 8px 0px 1px red;
+}
+.footer-widget .links{
+    list-style: none;
+}
+.footer-widget .links li{
+    margin: 5px 0;
+}
+.footer-widget .links li a{
+    font-size: 16px;
+    color: white;
+    line-height: 1.26;
+    font-weight: 600;
+    transition: all 350ms ease-out;
+}
+.footer-widget .links li a:hover{
+    color: var(--primry-clr);
+}
+
+
+.footer-widget .contacts-box:hover .cont-icn{
+    background: white;
+    color: var(--primry-clr);
+}
+.footer-widget .cont-icn{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    background: var(--primry-clr) ;
+    transition: all 400ms;
+    margin-right: 16px;
+}
+.footer-widget .contacts-box{
+    display: flex;
+    align-items: center;
+}
+.footer-widget .contacts-box{
+    margin-bottom: 22px;
+}
+.footer-widget .contacts-box .conta-links{
+    max-width: calc(100% - 80px) ;
+}
+.footer-widget .contacts-box .conta-links .title{
+    font-size: 13px;
+    color: var(--primry-clr);
+    margin-bottom: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.footer-widget .contacts-box .conta-links span,
+.footer-widget .contacts-box .conta-links a{
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    line-height: 1.26;
+    display: block;
+    transition: all 400ms;
+}
+.Scroll-top-btn .scroll-to-top{
+    position: fixed;
+    right: 30px;
+    bottom: 60px;
+    z-index: 1500;
+    width: 50px;
+    height: 50px;
+    background: var(--primry-clr);
+    border-radius: 50%;
+    cursor: pointer;
+}
+.Scroll-top-btn .scroll-to-top svg{
+    fill: white;
+    height: 16px;
+    font-weight: bold;
+}

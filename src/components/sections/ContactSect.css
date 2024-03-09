@@ -1,0 +1,100 @@
+.Contact_box{
+    width: 100%;
+    padding: 14%;
+    position: relative;
+    border-bottom-right-radius: 60px;
+}
+.Contact_box::before{
+    background: url(../../../public/images/bg/contact-bg.png);
+    background-size: cover;
+    background-position: 356px -110px;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    z-index: 2;
+}
+.Contact_box form{
+    position: relative;
+    z-index: 5;
+}
+.Contact_box .MuiFormControl-root {
+    width: 100%;
+    margin-bottom: 14px;
+}
+.Contact_box form select,
+.Contact_box form .MuiInputBase-root,
+.Contact_box form .MuiSelect-select,
+.Contact_box form input{
+    background: white;
+    width: 100%;
+}
+.Contact_box form button{
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+.contact-info{
+    width: 125%;
+    margin-right: -25%;
+    background: black;
+    padding: 12%;
+    margin-top: 40px;
+    border-top-right-radius: 60px;
+    position: relative;
+    z-index: 10;
+}
+@media (max-width: 767px) {
+    .contact-info {
+        width: 100%;
+        padding: 8%;
+        margin-right: 0;
+    }
+    .Contact_box{
+        padding: 8%;
+    }
+}
+.contacts-box:hover .cont-icn{
+    background: white;
+    color: var(--primry-clr);
+}
+.contact-info .cont-icn{
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 21px;
+    color: white;
+    background: var(--primry-clr) ;
+    transition: all 400ms;
+    margin-right: 19px;
+}
+.contact-info .contacts-box{
+    display: flex;
+    align-items: center;
+}
+.contacts-box{
+    margin-bottom: 32px;
+}
+.contacts-box .conta-links{
+    max-width: calc(100% - 100px) ;
+}
+.contacts-box .conta-links .title{
+    font-size: 13px;
+    color: var(--primry-clr);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.contacts-box .conta-links span,
+.contacts-box .conta-links a{
+    font-size: 19px;
+    color: white;
+    text-decoration: none;
+    line-height: 1.26;
+    display: block;
+    transition: all 400ms;
+}

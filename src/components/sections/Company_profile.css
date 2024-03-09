@@ -1,0 +1,127 @@
+.about-section{
+    padding: 80px 0px;
+    position: relative;
+    overflow: hidden;
+}
+.about-section .cstm-container{
+    padding-left: 8%;
+    padding-bottom: 6%;
+}
+.about-right-shape,
+.about-left-shape{
+    width: 30%;
+    height: auto;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+}
+.about-right-shape{
+    right: 0;
+    left: unset;
+}
+.about-right-shape img,
+.about-left-shape img{
+    width: 100%;
+}
+.abt-contact-content{
+    display: flex;
+    margin-left: 10px;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+}
+.abt-contact-content .contact-icon{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid var(--primry-clr);
+    line-height: 45px;
+    font-size: 16px;
+    color: var(--primry-clr);
+    text-align: center;
+    margin-right: 15px;
+}
+.abt-contact-content .contact-text span{
+    display: block;
+    font-size: 14px;
+    color: var(--primry-clr);
+}
+.abt-contact-content .contact-text a{
+    font-size: 18px;
+    font-weight: 600;
+    color: black;
+    text-decoration: none;
+}
+.abt-shape{
+    width: 60%;
+    height: auto;
+    position: absolute;
+    left: 0;
+    top: -110px;
+    z-index: 2;
+}
+.abt-shape img{
+    width: 100%;
+}
+.abt-text-circle{
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    width: 150px;
+    height: 150px;
+    Z-INDEX: 5;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.abt-text-circle .img-one{
+    width: 100%;
+    height: 100%;
+    animation: rotate-circ-img 80s linear infinite;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+}
+.abt-text-circle .img-two{
+    margin: auto;
+    max-width: 50%;
+    height: auto;
+}
+@keyframes rotate-circ-img {
+    from{transform: rotate(0deg);}
+    to{transform: rotate(3600deg);}
+}
+.abt-left-img{
+    max-width: 310px;
+    width: 50%;
+    padding-bottom: 25px;
+    -webkit-mask-image: url(../../../public/images/shapes/about-image-shape.svg);
+    mask-image:  url(../../../public/images/shapes/about-image-shape.svg);
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .about-section .cstm-container{
+        padding-right: 6%;
+    }
+    .abt-contact-content{
+        margin-left: 0;
+        margin-top: 12px;
+    }
+    .abt-text-circle{
+        width: 100px;
+        height: 100px;
+        top: 0;
+    }
+}
