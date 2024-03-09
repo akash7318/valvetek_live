@@ -73,13 +73,13 @@ function Sidebar() {
             hasChildren: false,
             addClass: location.pathname === "/admin/ourPresenceInCity" ? "active" : null
         },
-        {
-            name: 'Location',
-            icon: <LocationOnIcon />,
-            link: '/admin/location',
-            hasChildren: false,
-            addClass: location.pathname === "/admin/location" ? "active" : null
-        },
+        // {
+        //     name: 'Location',
+        //     icon: <LocationOnIcon />,
+        //     link: '/admin/location',
+        //     hasChildren: false,
+        //     addClass: location.pathname === "/admin/location" ? "active" : null
+        // },
         // {
         //     name: 'Product',
         //     icon: <InventoryIcon />,

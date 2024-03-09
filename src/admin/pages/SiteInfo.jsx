@@ -5,7 +5,7 @@ import Sidebar from '../components/Sidebar';
 import BreadCrumb from '../components/BreadCrumb';
 import AddData from '../components/AddData';
 import AddDataEditor from '../components/AddDataEditor';
-import Tinymce from '../components/Tinymce';
+import Jodit from '../components/Jodit';
 
 function SiteInfo() {
     const [compName, setCompName] = useState('');
@@ -39,7 +39,7 @@ function SiteInfo() {
     }, []);
 
     const getSiteInfo = async () => {
-        let result = await fetch(process.env.REACT_APP_BASE_URL + "siteInfo");
+        let result = await fetch(process.env.REACT_APP_BASE_URL + "admin/siteInfo");
         result = await result.json();
         if (result.status) {
             setCompName(result.siteInfo.compName);
@@ -91,9 +91,9 @@ function SiteInfo() {
         data.append("googleAnalytic", googleAnalytic);
         data.append("footerText", footerText);
 
-        const url = process.env.REACT_APP_BASE_URL + "updateSiteInfo";
+        const url = process.env.REACT_APP_BASE_URL + "admin/updateSiteInfo";
 
-        let result = await fetch(
+        fetch(
             url,
             {
                 method: "POST",
@@ -303,7 +303,8 @@ function SiteInfo() {
                                 <div className='col-12'>
                                     <AddDataEditor
                                         Label="Footer Text"
-                                        Editor={<Tinymce value={defaultFooterText} description={setContent} />}
+                                        // Editor={<Tinymce value={defaultFooterText} description={setContent} />}
+                                        Editor={<Jodit value={defaultFooterText} description={setContent} />}
                                     />
                                     <div className='row justify-content-end'>
                                         <button

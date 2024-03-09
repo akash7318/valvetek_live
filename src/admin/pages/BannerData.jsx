@@ -6,7 +6,7 @@ import '../Admin.css';
 import BreadCrumb from '../components/BreadCrumb';
 import AddData from '../components/AddData';
 import AddDataEditor from '../components/AddDataEditor';
-import Tinymce from '../components/Tinymce';
+import Jodit from '../components/Jodit';
 
 const BannerData = () => {
     const navigate = useNavigate();
@@ -25,7 +25,7 @@ const BannerData = () => {
     }
 
     const getBanner = async (id) => {
-        let result = await fetch("http://localhost:5000/banner/" + id)
+        let result = await fetch(`${process.env.REACT_APP_BASE_URL}admin/banner/` + id)
         result = await result.json();
 
         if (result.status) {
@@ -56,7 +56,7 @@ const BannerData = () => {
             data.append("id", params._id);
         }
 
-        const url = "http://localhost:5000/saveBanner";
+        const url = `${process.env.REACT_APP_BASE_URL}admin/saveBanner`;
 
         let result = await fetch(
             url,
@@ -96,7 +96,7 @@ const BannerData = () => {
                                     <AddData Label="Banner Image" changeFunction={setFile} inputType="file" />
                                 </div>
                                 <div className='col-12'>
-                                    <AddDataEditor Label="Banner Description" Editor={<Tinymce value={defaultDescription} description={setContent} />} />
+                                    <AddDataEditor Label="Banner Description" Editor={<Jodit value={defaultDescription} description={setContent} />} />
                                     <div className='row justify-content-end'>
                                         <button className='btn btn-primary mt-2 float-right w-fit col-auto mx-2'>Save Data</button>
                                     </div>

@@ -6,7 +6,7 @@ import '../Admin.css';
 import BreadCrumb from '../components/BreadCrumb';
 import AddData from '../components/AddData';
 import AddDataEditor from '../components/AddDataEditor';
-import Tinymce from '../components/Tinymce';
+import Jodit from '../components/Jodit';
 
 function PageData() {
     const navigate = useNavigate();
@@ -32,7 +32,7 @@ function PageData() {
     const [metaKeywords, setMetaKeywords] = useState('');
 
     const getPage = async (id) => {
-        let result = await fetch(process.env.REACT_APP_BASE_URL + "page/" + id)
+        let result = await fetch(process.env.REACT_APP_BASE_URL + "admin/page/" + id)
         result = await result.json();
 
         if (result.status) {
@@ -59,12 +59,14 @@ function PageData() {
 
         let form = e.target;
         let data = new FormData(form);
+        data.append('description', description);
+        data.append('extraDescription', extraDescription);
         if (params._id) {
             data.append("id", params._id);
         }
 
         let result = await fetch(
-            process.env.REACT_APP_BASE_URL + "savePage",
+            process.env.REACT_APP_BASE_URL + "admin/savePage",
             {
                 method: "POST",
                 body: data
@@ -107,10 +109,10 @@ function PageData() {
                                     </textarea>
                                 </div>
                                 <div className='col-12'>
-                                    <AddDataEditor changeFunction={setContent} Label="Description" Editor={<Tinymce value={defaultDescription} name="description" description={setDescription} />} />
+                                    <AddDataEditor Label="Description" Editor={<Jodit value={defaultDescription} name="description" description={setContent} />} />
                                 </div>
                                 <div className='col-12'>
-                                    <AddDataEditor changeFunction={setExtraContent} Label="Extra Description" Editor={<Tinymce value={extraDefaultDescription} name="extraDescription" description={setExtraDescription} />} />
+                                    <AddDataEditor Label="Extra Description" Editor={<Jodit value={extraDefaultDescription} name="extraDescription" description={setExtraDescription} />} />
                                 </div>
                                 <div className='col-12'>
                                     <AddData changeFunction={setMetaTitle} value={metaTitle} Label="Meta Title" Placeholder="Meta Title" name="metaTitle" inputType="text" />

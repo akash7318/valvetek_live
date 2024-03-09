@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
-import {  Swiper, SwiperSlide } from 'swiper/react';
+import React, { useState, useEffect } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -9,6 +9,21 @@ import 'swiper/css/scrollbar';
 import { Autoplay, Navigation } from 'swiper/modules';
 
 const Home_banner = () => {
+
+    const [banners, setBanner] = useState([]);
+
+    useEffect(() => {
+        getBanners();
+    }, []);
+
+    const getBanners = async () => {
+        let result = await fetch(`${process.env.REACT_APP_BASE_URL}banners`);
+        result = await result.json();
+        if (result.status) {
+            setBanner(result.banners);
+        }
+    }
+
     return (
         <>
             <Swiper
@@ -22,12 +37,20 @@ const Home_banner = () => {
                 navigation={{
                     prevEl: '.prev-slide',
                     nextEl: '.next-slide',
-                  }}
-                modules={[Autoplay , Navigation]}
+                }}
+                modules={[Autoplay, Navigation]}
                 className="home-slider">
-                <SwiperSlide><img className='w-100' loading='lazy' src='images/slider/Banner-1@2x.jpg' alt='' /></SwiperSlide>
-                <SwiperSlide><img className='w-100' loading='lazy' src='images/slider/Banner-2@2x.jpg' alt='' /></SwiperSlide>
-                <SwiperSlide><img className='w-100' loading='lazy' src='images/slider/Banner-3@2x.jpg' alt='' /></SwiperSlide>
+                {
+                    banners
+                        ?
+                        banners.map((value, index) =>
+                            <SwiperSlide key={index}>
+                                <img className='w-100' loading='lazy' src='../images/slider/Banner-1@2x.jpg' alt={value.name} title={value.name} />
+                            </SwiperSlide>
+                        )
+                        :
+                        null
+                }
                 <div className="prev-slide slide-btn"><span><i className="fa-solid fa-chevron-left"></i></span></div>
                 <div className="next-slide slide-btn"><span><i className="fa-solid fa-chevron-right"></i></span></div>
             </Swiper>

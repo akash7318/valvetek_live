@@ -23,7 +23,7 @@ function Banner() {
     }, []);
 
     const getBanners = async () => {
-        let result = await fetch(process.env.REACT_APP_BASE_URL + "banners");
+        let result = await fetch(`${process.env.REACT_APP_BASE_URL}admin/banners`);
         result = await result.json();
         setBanners(result);
     }
@@ -44,10 +44,10 @@ function Banner() {
                     index + 1,
                     <img className='img-one' src={"../images/banners/" + value.img} />,
                     value.name,
-                    <SwitchBtn checked={value.isActive} url={process.env.REACT_APP_BASE_URL + "changeActiveBanner/" + value._id} />,
+                    <SwitchBtn checked={value.isActive} url={process.env.REACT_APP_BASE_URL + "admin/changeActiveBanner/" + value._id} />,
                     <div className='d-flex gap-2 justify-content-center'>
                         <Link to={"/admin/banner/data/" + value._id} className='btn btn-primary'>Edit</Link>
-                        <DeleteBtn deleteAndRender={render} url={process.env.REACT_APP_BASE_URL + "deleteBanner/" + value._id} />
+                        <DeleteBtn deleteAndRender={render} url={process.env.REACT_APP_BASE_URL + "admin/deleteBanner/" + value._id} />
                     </div>
                 ]
             )

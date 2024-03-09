@@ -69,12 +69,12 @@ function Dashboard() {
             'icon': <AddLocationAltIcon className='fs-1' />,
             'link': '/admin/ourPresenceInCity'
         },
-        {
-            'title': 'Location',
-            'heading': "In City",
-            'icon': <LocationOnIcon className='fs-1' />,
-            'link': '/admin/ourPresenceInCity'
-        }
+        // {
+        //     'title': 'Location',
+        //     'heading': "In City",
+        //     'icon': <LocationOnIcon className='fs-1' />,
+        //     'link': '/admin/ourPresenceInCity'
+        // }
     ];
 
     return (

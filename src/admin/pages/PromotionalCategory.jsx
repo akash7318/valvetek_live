@@ -22,7 +22,7 @@ function PromotionalCategory() {
     }, []);
 
     const getPromotionalCategory = async () => {
-        let result = await fetch(process.env.REACT_APP_BASE_URL + "promotionalCategories");
+        let result = await fetch(process.env.REACT_APP_BASE_URL + "admin/promotionalCategories");
         result = await result.json();
         setPromotionalCategory(result);
     }
@@ -41,10 +41,10 @@ function PromotionalCategory() {
                 [
                     index + 1,
                     value.name,
-                    <SwitchBtn checked={value.isActive} url={process.env.REACT_APP_BASE_URL + "changeActivePromotionalCategory/" + value._id} />,
+                    <SwitchBtn checked={value.isActive} url={process.env.REACT_APP_BASE_URL + "admin/changeActivePromotionalCategory/" + value._id} />,
                     <div className='d-flex gap-2 justify-content-center'>
                         <Link to={"/admin/promotionalCategory/data/" + value._id} className='btn btn-primary'>Edit</Link>
-                        <DeleteBtn deleteAndRender={render} url={process.env.REACT_APP_BASE_URL + "deletePromotionalCategory/" + value._id} />
+                        <DeleteBtn deleteAndRender={render} url={process.env.REACT_APP_BASE_URL + "admin/deletePromotionalCategory/" + value._id} />
                     </div>
                 ]
             )

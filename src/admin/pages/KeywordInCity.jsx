@@ -6,7 +6,7 @@ import '../Admin.css';
 import BreadCrumb from '../components/BreadCrumb';
 import AddData from '../components/AddData';
 import AddDataEditor from '../components/AddDataEditor';
-import Tinymce from '../components/Tinymce';
+import Jodit from '../components/Jodit';
 
 function KeywordInCity() {
     const [img, setImg] = useState([]);
@@ -32,7 +32,7 @@ function KeywordInCity() {
     }, []);
 
     const getKeywordInCity = async () => {
-        let result = await fetch(process.env.REACT_APP_BASE_URL + "keywordInCity");
+        let result = await fetch(process.env.REACT_APP_BASE_URL + "admin/keywordInCity");
         result = await result.json();
         if (result.status) {
             setShortDescription(result.keywordInCity.shortDescription);
@@ -50,11 +50,13 @@ function KeywordInCity() {
         toast.success('Updated Successfully.');
 
         const formData = e.target;
-        const data = new FormData(formData);
+        let data = new FormData(formData);
+        data.append('description', description);
+        data.append('extraDescription', extraDescription);
 
-        const url = process.env.REACT_APP_BASE_URL + "updateKeywordInCity";
+        const url = process.env.REACT_APP_BASE_URL + "admin/updateKeywordInCity";
 
-        let result = await fetch(
+        fetch(
             url,
             {
                 method: "POST",
@@ -99,13 +101,13 @@ function KeywordInCity() {
                                 <div className='col-md-12'>
                                     <AddDataEditor
                                         Label="Description"
-                                        Editor={<Tinymce name="description" value={defaultDescription} description={setContent} />}
+                                        Editor={<Jodit name="description" value={defaultDescription} description={setContent} />}
                                     />
                                 </div>
                                 <div className='col-md-12'>
                                     <AddDataEditor
                                         Label="Extra Description"
-                                        Editor={<Tinymce name="extraDescription" value={defaultExtraDescription} description={setExtraContent} />}
+                                        Editor={<Jodit name="extraDescription" value={defaultExtraDescription} description={setExtraContent} />}
                                     />
                                 </div>
                                 <div className='col-md-12'>

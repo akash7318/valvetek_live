@@ -22,7 +22,7 @@ function Product() {
     }, []);
 
     const getProducts = async () => {
-        let result = await fetch(process.env.REACT_APP_BASE_URL + "products");
+        let result = await fetch(process.env.REACT_APP_BASE_URL + "admin/products");
         result = await result.json();
         setProducts(result);
     }
@@ -43,10 +43,10 @@ function Product() {
                     index + 1,
                     <img className='img-one' src={"../images/products/" + value.img} />,
                     value.name,
-                    <SwitchBtn checked={value.isActive} url={process.env.REACT_APP_BASE_URL + "changeActiveProduct/" + value._id} />,
+                    <SwitchBtn checked={value.isActive} url={process.env.REACT_APP_BASE_URL + "admin/changeActiveProduct/" + value._id} />,
                     <div className='d-flex gap-2 justify-content-center'>
                         <Link to={"/admin/product/data/" + value._id} className='btn btn-primary'>Edit</Link>
-                        <DeleteBtn deleteAndRender={render} url={process.env.REACT_APP_BASE_URL + "deleteProduct/" + value._id} />
+                        <DeleteBtn deleteAndRender={render} url={process.env.REACT_APP_BASE_URL + "admin/deleteProduct/" + value._id} />
                     </div>
                 ]
             )

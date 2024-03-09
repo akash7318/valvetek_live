@@ -22,7 +22,7 @@ function Pages() {
     }, []);
 
     const getPages = async () => {
-        let result = await fetch(process.env.REACT_APP_BASE_URL + "pages");
+        let result = await fetch(process.env.REACT_APP_BASE_URL + "admin/pages");
         result = await result.json();
         setPages(result);
     }
@@ -43,7 +43,7 @@ function Pages() {
                     index + 1,
                     <img className='img-one' src={"../images/pages/" + value.img} />,
                     value.name,
-                    <SwitchBtn checked={value.isActive} url={process.env.REACT_APP_BASE_URL + "changeActivePage/" + value._id} />,
+                    <SwitchBtn checked={value.isActive} url={process.env.REACT_APP_BASE_URL + "admin/changeActivePage/" + value._id} />,
                     <div className='d-flex gap-2 justify-content-center'>
                         <Link to={"/admin/page/data/" + value._id} className='btn btn-primary'>Edit</Link>
                         {/* <DeleteBtn deleteAndRender={render} url={process.env.REACT_APP_BASE_URL + "deletePage/" + value._id} /> */}
