@@ -35,7 +35,10 @@ const ProductDetailSect = () => {
         <section className='sect-space'>
             <div className='container'>
                 <div className=''>
-                    <motion.div 
+                    <div className='floated-pd'>
+                      <img className='pd-img-main' src="./images/products/pd1.jpg" alt="" />
+                    </div>
+                    {/* <motion.div 
                     ref={ref}
                     variants={boxVariant}
                     initial="hidden"
@@ -43,9 +46,7 @@ const ProductDetailSect = () => {
                     className='floated-pd'>
                         <div className='w-100'>
                             <Swiper
-                                // loop={true}
                                 speed={500}
-                                // navigation={true}
                                 thumbs={{swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null}}
                                 modules={[FreeMode, Navigation, Thumbs]}
                                 className="home-slider">
@@ -96,7 +97,7 @@ const ProductDetailSect = () => {
                               
                             </Swiper>
                         </div>
-                    </motion.div>
+                    </motion.div> */}
                     <Section_title smTitle="Product Details" mainTitle="Bibendum potenti taciti ex parturient lacini" />
                     <LoremIpsum p={5} />
                 </div>

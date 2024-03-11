@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Company_profile from './components/sections/Company_profile';
 import BreadCrumb from './components/sections/BreadCrumb';
 import ContactSect from './components/sections/ContactSect';
-import Sitemap from './components/sections/Sitemap';
+import Sitemap from './components/sections/SitemapSect';
 import ProductSlider from './components/sections/ProductSlider';
 import ProductDetailSect from './components/sections/ProductDetailSect';
 
@@ -28,10 +28,7 @@ const About = () => {
     <>
       <BreadCrumb />
       <Company_profile pageData={aboutData} />
-      <ProductSlider />
-      <ProductDetailSect />
       <ContactSect />
-      <Sitemap />
     </>
   )
 }
