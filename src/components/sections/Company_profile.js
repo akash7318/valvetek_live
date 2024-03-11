@@ -28,8 +28,8 @@ const Company_profile = (props) => {
   return (
     <>
       <section className="about-section">
-        <div className='about-left-shape anim-up-down'><img src="images/shapes/about-left-shape.svg" alt="" /></div>
-        <div className='about-right-shape anim-scale'><img src="images/shapes/about-right-shape.svg" alt="" /></div>
+        <div className='about-left-shape anim-up-down'><img src="images/shapes/about-left-shape.jpg" alt="" /></div>
+        <div className='about-right-shape anim-scale'><img src="images/shapes/about-right-shape.jpg" alt="" /></div>
         <div className='container'>
           <div className='row'>
             <div
