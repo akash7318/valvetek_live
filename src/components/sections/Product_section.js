@@ -30,7 +30,7 @@ const Product_section = () => {
             products
               ?
               products.map((value, index) =>
-                <div key={index} className='col-lg-4 col-md-6 m-b30'>
+                <div key={index} className='col-lg-3 col-md-4 col-sm-6 m-b30'>
                   <Product_card productName={value.name} productSlug={'/'} productImg={value.img} />
                 </div>
               )
