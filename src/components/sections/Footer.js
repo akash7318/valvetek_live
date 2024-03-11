@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Footer.css';
 import Socials from '../nav/Socials';
 import ScrollToTop from 'react-scroll-to-top';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
+
+    const [siteInfo, setSiteInfo] = useState([]);
+
+    useEffect(() => {
+        getSiteInfo();
+    }, [])
+
+    const getSiteInfo = async () => {
+        let result = await fetch(`${process.env.REACT_APP_BASE_URL}siteInfo`);
+        result = await result.json();
+        if (result.status) {
+            setSiteInfo(result.siteInfo);
+        }
+    }
+
     return (
         <>
             <footer>
@@ -13,17 +29,17 @@ const Footer = () => {
                 <div className='footer-main'>
                     <div className='container'>
                         <div className='row justify-content-between'>
-                          
+
                             <div className='col-lg-2 col-md-6 m-t40'>
                                 <div className='footer-widget'>
                                     <p className='title-ft'>Useful Links</p>
                                     <ul className='links'>
-                                        <li><a href="">Home</a></li>
-                                        <li><a href="">Products</a></li>
-                                        <li><a href="">Company Profile</a></li>
-                                        <li><a href="">Sitemap</a></li>
-                                        <li><a href="">Market Place</a></li>
-                                        <li><a href="">Contact Us</a></li>
+                                        <li><Link to={'/'}>Home</Link></li>
+                                        {/* <li><Link to={''}>Products</Link></li> */}
+                                        <li><Link to={'/about'}>Company Profile</Link></li>
+                                        <li><Link to={'/sitemap'}>Sitemap</Link></li>
+                                        <li><Link to={''}>Market Place</Link></li>
+                                        <li><Link to={'/contact'}>Contact Us</Link></li>
                                     </ul>
                                 </div>
                             </div>
@@ -35,21 +51,23 @@ const Footer = () => {
                                         <div className='cont-icn'><i className="fa-solid fa-phone-volume"></i></div>
                                         <div className='conta-links'>
                                             <span className='title'>Phone</span>
-                                            <a href="">+91 0000 00000</a>
+                                            <a href={"tel:" + siteInfo.primaryPhone}>{siteInfo.primaryPhone}</a>
+                                            <a href={"tel:" + siteInfo.secondaryPhone}>{siteInfo.secondaryPhone}</a>
                                         </div>
                                     </div>
                                     <div className='contacts-box'>
                                         <div className='cont-icn'><i className="fa-solid fa-envelope-open-text"></i></div>
                                         <div className='conta-links'>
                                             <span className='title'>Email</span>
-                                            <a href="">contact@company.com</a>
+                                            <a href={"mailto:" + siteInfo.primaryMail}>{siteInfo.primaryMail}</a>
+                                            <a href={"mailto:" + siteInfo.secondaryMail}>{siteInfo.secondaryMail}</a>
                                         </div>
                                     </div>
                                     <div className='contacts-box'>
                                         <div className='cont-icn'><i className="fa-solid fa-map-location-dot"></i></div>
                                         <div className='conta-links'>
                                             <span className='title'>Address</span>
-                                            <span>456, Loandon Street, lorem tisuml, 33454, India</span>
+                                            <span>{siteInfo.primaryAddress}</span>
                                         </div>
                                     </div>
 
@@ -59,10 +77,10 @@ const Footer = () => {
                                 <div className='ft-logo-box'>
                                     <a href='' className='ft-logo'>
                                         {/* <img src="./images/logo-valvetek.png" alt="" /> */}
-                                        Valvetek Engineering
+                                        {siteInfo.compName}
                                     </a>
-                                    <p>Lorem ipsum odor amet, consectetuer adipiscing elit. Suspendisse efficitur sit ut nullam egestas imperdiet netus? Rhoncus odio laoreet nisi aliquet per dui augue. Sollicitudin cras dictum ligula neque convallis laoreet, iaculis duis! Maecenas proin tincidunt tempus eget nec parturient luctus aliquet litora. Gravida curabitur maximus, conubia vivamus netus orci habitant fusce.</p>
-                                    <a className='read-more-btn' href="">Readmore <span className='line'></span> <i className="fa-solid fa-angle-right"></i></a>
+                                    {siteInfo.footerText}
+                                    <Link to={'/about'} className='read-more-btn'>Contact Us <span className='line'></span> <i className="fa-solid fa-angle-right"></i></Link>
 
                                     {/* Social links */}
                                     <Socials />
@@ -74,7 +92,7 @@ const Footer = () => {
                         <div className='container'>
                             <div className='row'>
                                 <div className='col-12 '>
-                                    <div className='copy-right-text'><span>Copyright © 2024. All Rights Reserved.</span><a href="">Company Name</a></div>
+                                    <div className='copy-right-text'><span>Copyright © 2024 by Meri Dairy | Website Designed & Promoted by Insta Vyapar </span><a href="https://www.instavyapar.com/our-services/digital-marketing/google-promotion.html" target="_blank">Google Promotion Services</a></div>
                                 </div>
                             </div>
                         </div>

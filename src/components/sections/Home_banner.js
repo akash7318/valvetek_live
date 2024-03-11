@@ -45,7 +45,7 @@ const Home_banner = () => {
                         ?
                         banners.map((value, index) =>
                             <SwiperSlide key={index}>
-                                <img className='w-100' loading='lazy' src='../images/slider/Banner-1@2x.jpg' alt={value.name} title={value.name} />
+                                <img className='w-100' loading='lazy' src={'./images/banners/' + value.img} alt={value.name} title={value.name} />
                             </SwiperSlide>
                         )
                         :

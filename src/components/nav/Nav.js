@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import './Nav.css';
 import MenuList from './MenuList';
@@ -6,12 +6,27 @@ import Socials from './Socials';
 import Btn_link from '../Btn_link';
 import PermPhoneMsgIcon from '@mui/icons-material/PermPhoneMsg';
 import ForwardToInboxIcon from '@mui/icons-material/ForwardToInbox';
+import { Link } from 'react-router-dom';
 
 const Nav = () => {
 
     const [isOpen, setIsopen] = useState(false);
+    const [siteInfo, setSiteInfo] = useState([]);
+
     const toggleSidenav = () => {
         setIsopen(!isOpen);
+    }
+
+    useEffect(() => {
+        getSiteInfo();
+    }, [])
+
+    const getSiteInfo = async () => {
+        let result = await fetch(`${process.env.REACT_APP_BASE_URL}siteInfo`);
+        result = await result.json();
+        if (result.status) {
+            setSiteInfo(result.siteInfo);
+        }
     }
 
     return (
@@ -21,13 +36,13 @@ const Nav = () => {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="header-topbar-content">
-                               {/* socials */}
-                               <div className="cstm-socials"><Socials /></div>
-                               
+                                {/* socials */}
+                                <div className="cstm-socials"><Socials /></div>
+
                                 <div className="cstm-contact-infos">
                                     <ul>
-                                        <li><PermPhoneMsgIcon /><a href="">+91 00000 0000</a></li>
-                                        <li><ForwardToInboxIcon /><a href="">mail@company.com</a>
+                                        <li><PermPhoneMsgIcon /><a href={"tel:" + siteInfo.primaryPhone}>{siteInfo.primaryPhone}</a></li>
+                                        <li><ForwardToInboxIcon /><a href={"mailto:" + siteInfo.primaryMail}>{siteInfo.primaryMail}</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -41,12 +56,12 @@ const Nav = () => {
                     <div className='row'>
                         <div className='col-lg-12'>
                             <div className='mainmenu-wrapper'>
-                                <div className='logo-box'> <a href=''><img src='./images/logo-valvetek.png' alt='' /></a> </div>
+                                <div className='logo-box'> <Link to={'/'}><img src={'./images/' + siteInfo.logo} alt={siteInfo.name} title={siteInfo.name} /></Link> </div>
                                 <div className='Mainmenu'>
                                     {/* menu list appear here */}
                                     <MenuList />
                                 </div>
-                                <Btn_link Href="" addClass='' btnName="Request Quote" />
+                                <Btn_link Href="/about" addClass='' btnName="Request Quote" />
                                 <span onClick={toggleSidenav} className='menuBtn'><i className="fa-solid fa-bars-staggered"></i></span>
                             </div>
                         </div>
@@ -56,15 +71,17 @@ const Nav = () => {
             {/* menu for mobile*/}
             <div className={isOpen ? 'phone-nav-overlay active' : 'phone-nav-overlay'}>
                 <span onClick={toggleSidenav} className='close-nav'><i className="fa-solid fa-xmark"></i></span>
-               <div className='phone-nav'>
-                 <div className='logo-box'> <a href=''><img src='./images/logo-valvetek.png' alt='' /></a> </div>
-                 {/* menu list appear here for mobile*/}
-                 <MenuList />
-               </div>
-               <div>
-                 {/* socials */}
-                 <div className="cstm-socials"><Socials /></div>
-               </div>
+                <div className='phone-nav'>
+                    <div className='logo-box'> <Link to={'/'}><img src={'./images/' + siteInfo.img} alt={siteInfo.name} title={siteInfo.name} /></Link> </div>
+                    {/* menu list appear here for mobile*/}
+                    <MenuList />
+                </div>
+                <div>
+                    {/* socials */}
+                    <div className="cstm-socials">
+                        <Socials />
+                    </div>
+                </div>
             </div>
         </>
     );

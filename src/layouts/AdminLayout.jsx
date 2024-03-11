@@ -15,32 +15,37 @@ import PromotionalCategoryData from '../admin/pages/PromotionalCategoryData';
 import KeywordInCity from '../admin/pages/KeywordInCity';
 import OurPresenceInCity from '../admin/pages/OurPresenceInCity';
 
+import PrivateComponent from '../components/PrivateComponent';
+
 function SiteLayout() {
     return (
         <Routes>
-            <Route path='/admin/dashboard' element={<Dashboard />} />
-            <Route path='/admin/site-info' element={<SiteInfo />} />
+            <Route element={<PrivateComponent />} >
+                <Route path='/admin/dashboard' element={<Dashboard />} />
+                <Route path='/admin/site-info' element={<SiteInfo />} />
 
-            <Route path='/admin/banner' element={<Banner />} />
-            <Route path='/admin/banner/data' element={<BannerData />} />
-            <Route path='/admin/banner/data/:_id' element={<BannerData />} />
+                <Route path='/admin/banner' element={<Banner />} />
+                <Route path='/admin/banner/data' element={<BannerData />} />
+                <Route path='/admin/banner/data/:_id' element={<BannerData />} />
 
-            <Route path='/admin/pages' element={<Pages />} />
-            {/* <Route path='/admin/banner/data' element={<BannerData />} /> */}
-            <Route path='/admin/page/data/:_id' element={<PageData />} />
+                <Route path='/admin/pages' element={<Pages />} />
+                {/* <Route path='/admin/banner/data' element={<BannerData />} /> */}
+                <Route path='/admin/page/data/:_id' element={<PageData />} />
 
-            <Route path='/admin/product' element={<Product />} />
-            <Route path='/admin/product/data' element={<ProductData />} />
-            <Route path='/admin/product/data/:_id' element={<ProductData />} />
+                <Route path='/admin/product' element={<Product />} />
+                <Route path='/admin/product/data' element={<ProductData />} />
+                <Route path='/admin/product/data/:_id' element={<ProductData />} />
 
-            <Route path='/admin/promotionalCategory' element={<PromotionalCategory />} />
-            <Route path='/admin/promotionalCategory/data' element={<PromotionalCategoryData />} />
-            <Route path='/admin/promotionalCategory/data/:_id' element={<PromotionalCategoryData />} />
+                <Route path='/admin/promotionalCategory' element={<PromotionalCategory />} />
+                <Route path='/admin/promotionalCategory/data' element={<PromotionalCategoryData />} />
+                <Route path='/admin/promotionalCategory/data/:_id' element={<PromotionalCategoryData />} />
 
-            <Route path='/admin/keywordInCity' element={<KeywordInCity />} />
-            <Route path='/admin/ourPresenceInCity' element={<OurPresenceInCity />} />
+                <Route path='/admin/keywordInCity' element={<KeywordInCity />} />
+                <Route path='/admin/ourPresenceInCity' element={<OurPresenceInCity />} />
+            </Route>
 
             <Route path='/login' element={<Login />} />
+            <Route path='/admin' element={<Login />} />
         </Routes>
     )
 }

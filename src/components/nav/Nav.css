@@ -1,16 +1,20 @@
-ul, li{
+ul,
+li {
    list-style: none;
 }
-ul{
+
+ul {
    margin: 0;
    padding: 0;
 }
+
 .Header {
    width: 100%;
    /* padding: 10px 0px; */
    border-bottom: 1px solid #f2f2f2;
    background: #8a0c0c;
 }
+
 .header-topbar-content {
    display: flex;
    flex-wrap: wrap;
@@ -18,29 +22,35 @@ ul{
    justify-content: space-between;
 
 }
-.mainmenu-wrapper{
+
+.mainmenu-wrapper {
    display: flex;
    justify-content: space-between;
    align-items: center;
    /* box-shadow: 4px 4px 2px -1px rgb(215, 214, 214); */
 }
-.cstm-socials{
+
+.cstm-socials {
    max-width: 240px;
 }
-.logo-box{
+
+.logo-box {
    max-width: 240px;
    width: 100%;
 }
-.logo-box a{
+
+.logo-box a {
    width: 100%;
    height: fit-content;
    display: inline-block;
 }
-.logo-box a img{
+
+.logo-box a img {
    max-width: 100%;
    padding: 8px 0px;
 }
-.Navbar{
+
+.Navbar {
    position: sticky;
    top: 0;
    left: 0;
@@ -48,17 +58,21 @@ ul{
    background: white;
    box-shadow: 0px 0px 4px rgb(206, 206, 206);
 }
-.mainmenu-wrapper .thm-btn{
+
+.mainmenu-wrapper .thm-btn {
    background: black;
 }
-.mainmenu-wrapper .thm-btn:hover{
+
+.mainmenu-wrapper .thm-btn:hover {
    background: var(--primry-clr);
 }
-.Mainmenu ul{
+
+.Mainmenu ul {
    display: flex;
    gap: 55px;
 }
-.Mainmenu ul li a{
+
+.Mainmenu ul li a {
    padding: 24px 0;
    display: inline-block;
    font-size: 15px;
@@ -69,30 +83,36 @@ ul{
    text-transform: uppercase;
    transition: all 450ms ease-out;
 }
+
 .Mainmenu ul li.active a,
-.Mainmenu ul li a:hover{
+.Mainmenu ul li a:hover {
    color: var(--primry-clr);
 }
-.Mainmenu ul li i{
+
+.Mainmenu ul li i {
    font-size: 15px;
    color: rgb(92, 92, 92);
    font-weight: 600;
    margin-left: 5px;
 }
+
 .Mainmenu ul li.hasChild ul li.hasChild,
-.Mainmenu ul li.hasChild{
+.Mainmenu ul li.hasChild {
    position: relative;
 }
-.Mainmenu ul li.hasChild ul li.hasChild{
+
+.Mainmenu ul li.hasChild ul li.hasChild {
    display: flex;
    align-items: center;
 }
-.Mainmenu ul li.hasChild ul li.hasChild i{
+
+.Mainmenu ul li.hasChild ul li.hasChild i {
    z-index: 4;
    margin-left: -25px;
 }
+
 .Mainmenu ul li.hasChild ul li.hasChild ul,
-.Mainmenu ul li.hasChild ul{
+.Mainmenu ul li.hasChild ul {
    position: absolute;
    top: 70px;
    left: 0;
@@ -106,22 +126,29 @@ ul{
    transition: all 400ms ease-out;
    transform: scaleY(0);
    transform-origin: top;
+   max-height: 78vh;
+   overflow-y: auto;
+   overflow-x: hidden;
 }
-.Mainmenu ul li.hasChild ul li.hasChild ul{
+
+.Mainmenu ul li.hasChild ul li.hasChild ul {
    left: 100%;
    top: 0;
 }
+
 /* .Mainmenu ul li.hasChild:hover:not(.Mainmenu ul li.hasChild ul li.hasChild:hover ul), */
 .Mainmenu ul li.hasChild ul li.hasChild:hover ul,
-.Mainmenu ul li.hasChild:hover ul{
+.Mainmenu ul li.hasChild:hover ul {
    transform: scaleY(1);
 }
+
 .Mainmenu ul li.hasChild ul li.hasChild ul li,
-.Mainmenu ul li.hasChild ul li{
+.Mainmenu ul li.hasChild ul li {
    width: 100%;
 }
+
 .Mainmenu ul li.hasChild ul li.hasChild ul li a::before,
-.Mainmenu ul li.hasChild ul li a::before{
+.Mainmenu ul li.hasChild ul li a::before {
    content: "";
    position: absolute;
    width: auto;
@@ -143,29 +170,33 @@ ul{
    visibility: hidden;
    transition: all 400ms;
 }
+
 .Mainmenu ul li.hasChild ul li.hasChild ul li:hover a::before,
-.Mainmenu ul li.hasChild ul li:hover a::before{
-    opacity: 1;
-    visibility: visible;
-    right: -16px;
-    left: -16px;
+.Mainmenu ul li.hasChild ul li:hover a::before {
+   opacity: 1;
+   visibility: visible;
+   right: -16px;
+   left: -16px;
 }
+
 .Mainmenu ul li.hasChild ul li.hasChild ul li a,
-.Mainmenu ul li.hasChild ul li a{
+.Mainmenu ul li.hasChild ul li a {
    padding: 12px 25px;
    z-index: 2;
    width: 100%;
    color: rgb(92, 92, 92);
 }
+
 .Mainmenu ul li.hasChild ul li.hasChild ul li a:hover,
 .Mainmenu ul li.hasChild ul li.hasChild ul li:hover a,
 .Mainmenu ul li.hasChild ul li.hasChild ul li:hover,
 .Mainmenu ul li.hasChild ul li:hover a,
 .Mainmenu ul li.hasChild ul li a:hover,
-.Mainmenu ul li.hasChild ul li:hover{
+.Mainmenu ul li.hasChild ul li:hover {
    color: white;
 }
-.menuBtn{
+
+.menuBtn {
    display: none;
    justify-content: center;
    align-items: center;
@@ -176,57 +207,71 @@ ul{
    color: gray;
    cursor: pointer;
 }
+
 @media (max-width: 1250px) {
-   .Mainmenu ul{
+   .Mainmenu ul {
       gap: 25px;
    }
-   .Mainmenu ul li a{
+
+   .Mainmenu ul li a {
       font-size: 13px;
    }
+
    .cstm-socials,
-   .logo-box{
+   .logo-box {
       max-width: 180px;
    }
-   .mainmenu-wrapper .thm-btn{
+
+   .mainmenu-wrapper .thm-btn {
       padding: 10px 18px;
       font-size: 13px;
    }
 }
+
 @media (max-width: 1008px) {
-   .mainmenu-wrapper .thm-btn{
+   .mainmenu-wrapper .thm-btn {
       display: none;
    }
-   .Mainmenu ul li a{
+
+   .Mainmenu ul li a {
       padding: 18px 0;
    }
 }
+
 @media (max-width: 780px) {
-   .Mainmenu{
+   .Mainmenu {
       display: none;
    }
-   .menuBtn{
+
+   .menuBtn {
       display: flex;
    }
-   .header-topbar-content{
+
+   .header-topbar-content {
       justify-content: center;
    }
-   .cstm-contact-infos{
+
+   .cstm-contact-infos {
       padding: 11px 22px;
       display: none;
       /* border-top: 1px solid #f2f2f2; */
    }
-   .cstm-contact-infos ul{
+
+   .cstm-contact-infos ul {
       justify-content: center;
    }
-   .cstm-contact-infos ul li{
+
+   .cstm-contact-infos ul li {
       margin-bottom: 8px;
       text-align: center;
    }
-   .cstm-socials{
-      padding: 8px ;
+
+   .cstm-socials {
+      padding: 8px;
    }
 }
-.phone-nav-overlay{
+
+.phone-nav-overlay {
    position: fixed;
    left: 0;
    top: 0;
@@ -241,11 +286,13 @@ ul{
    transition: all 500ms;
    padding-bottom: 150px;
 }
-.phone-nav-overlay.active{
+
+.phone-nav-overlay.active {
    width: 86vw;
    transform: translateX(0);
 }
-.close-nav{
+
+.close-nav {
    width: 25px;
    height: 25px;
    text-align: center;
@@ -258,19 +305,23 @@ ul{
    background: black;
    color: white;
 }
-.phone-nav{
+
+.phone-nav {
    padding: 35px 0px;
    width: 100%;
 }
+
 /* phone nav css */
-.phone-nav ul li{
+.phone-nav ul li {
    width: 100%;
    border-bottom: 1px solid rgb(237, 236, 236);
 }
-.phone-nav ul li:last-child{
+
+.phone-nav ul li:last-child {
    border-bottom: none;
 }
-.phone-nav ul li a{
+
+.phone-nav ul li a {
    padding: 14px 22px;
    display: inline-block;
    font-size: 15px;
@@ -281,31 +332,36 @@ ul{
    text-transform: uppercase;
    transition: all 450ms ease-out;
 }
+
 .phone-nav ul li.active a,
-.phone-nav ul li a:hover{
+.phone-nav ul li a:hover {
    color: var(--primry-clr);
 }
-.phone-nav ul li i{
+
+.phone-nav ul li i {
    font-size: 15px;
    color: rgb(92, 92, 92);
    font-weight: 600;
    margin-left: 5px;
 }
+
 .phone-nav ul li.hasChild ul li.hasChild,
-.phone-nav ul li.hasChild{
+.phone-nav ul li.hasChild {
    position: relative;
    display: flex;
    flex-wrap: wrap;
    align-items: center;
    justify-content: space-between;
 }
-.phone-nav ul li.hasChild i{
+
+.phone-nav ul li.hasChild i {
    padding: 9px 12px;
    background: #e6e3e3;
    color: black;
 }
+
 .phone-nav ul li.hasChild ul li.hasChild ul,
-.phone-nav ul li.hasChild ul{
+.phone-nav ul li.hasChild ul {
    min-width: 290px;
    width: 100%;
    display: inline-block;
@@ -318,19 +374,22 @@ ul{
    height: 0;
    overflow: hidden;
 }
+
 .phone-nav ul li.hasChild ul.active li.hasChild ul.active,
-.phone-nav ul li.hasChild ul.active{
+.phone-nav ul li.hasChild ul.active {
    padding-bottom: 18px;
    transform: scaleY(1);
    height: fit-content;
    margin-left: 12px;
 }
+
 .phone-nav ul li.hasChild ul li.hasChild ul li,
-.phone-nav ul li.hasChild ul li{
+.phone-nav ul li.hasChild ul li {
    width: 100%;
 }
+
 .phone-nav ul li.hasChild ul li.hasChild ul li a,
-.phone-nav ul li.hasChild ul li a{
+.phone-nav ul li.hasChild ul li a {
    padding: 12px 25px;
 }
 

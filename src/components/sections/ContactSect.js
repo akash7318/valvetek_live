@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect, useState } from 'react';
 import './ContactSect.css';
 import Section_title from '../Section_title';
 import Button from '../Button';
@@ -12,56 +12,68 @@ import { useInView } from "react-intersection-observer";
 
 const ContactSect = () => {
 
+    const [siteInfo, setSiteInfo] = useState([]);
+
     const boxVariant = {
-        visible: { opacity: 1, scale: 1,  transition: {duration: 0.325} },
+        visible: { opacity: 1, scale: 1, transition: { duration: 0.325 } },
         hidden: { opacity: 0.25, scale: 0.65 },
-      }
-    
-      const control = useAnimation()
-      const [ref, inView] = useInView()
-    
-      useEffect(() => {
+    }
+
+    const control = useAnimation()
+    const [ref, inView] = useInView()
+
+    useEffect(() => {
+        getSiteInfo();
         if (inView) {
-          control.start("visible");
+            control.start("visible");
         }
         else {
-          control.start("hidden");
+            control.start("hidden");
         }
-      }, [control, inView]);
+    }, [control, inView])
 
+    const getSiteInfo = async () => {
+        let result = await fetch(`${process.env.REACT_APP_BASE_URL}siteInfo`);
+        result = await result.json();
+        if (result.status) {
+            setSiteInfo(result.siteInfo);
+        }
+    }
     return (
         <section className='sect-space '>
             <div className='container'>
 
                 <div className='row'>
                     <div className='col-lg-4 col-md-6'>
-                        <Section_title smTitle="Contact" mainTitle="Semper tellus semmag" />
-                        <p className='m-t20'>Cursus quis condimentum nunc ultricies dis nisi diam nec. Bibendum potenti taciti ex parturient lacinia velit habitant.  </p>
-                        <motion.div 
-                           ref={ref}
-                           variants={boxVariant}
-                           initial="hidden"
-                           animate={control}
-                        className='contact-info'>
+                        <Section_title smTitle="Contact Us" mainTitle="Customer Support" />
+                        <p className='m-t20'>Our dedicated customer support team is ready to assist you with any questions or concerns you may have. Reach out for product information, order assistance, or general Enquiries.</p>
+                        <motion.div
+                            ref={ref}
+                            variants={boxVariant}
+                            initial="hidden"
+                            animate={control}
+                            className='contact-info'>
                             <div className='contacts-box m-t30'>
                                 <div className='cont-icn'><i className="fa-solid fa-phone-volume"></i></div>
                                 <div className='conta-links'>
                                     <span className='title'>Phone</span>
-                                    <a href="">+91 0000 00000</a>
+                                    <a href={"tel:" + siteInfo.primaryPhone}>{siteInfo.primaryPhone}</a>
+                                    <a href={"tel:" + siteInfo.secondaryPhone}>{siteInfo.secondaryPhone}</a>
                                 </div>
                             </div>
                             <div className='contacts-box'>
                                 <div className='cont-icn'><i className="fa-solid fa-envelope-open-text"></i></div>
                                 <div className='conta-links'>
                                     <span className='title'>Email</span>
-                                    <a href="">contact@company.com</a>
+                                    <a href={"mailto:" + siteInfo.primaryMail}>{siteInfo.primaryMail}</a>
+                                    <a href={"mailto:" + siteInfo.secondaryMail}>{siteInfo.secondaryMail}</a>
                                 </div>
                             </div>
                             <div className='contacts-box'>
                                 <div className='cont-icn'><i className="fa-solid fa-map-location-dot"></i></div>
                                 <div className='conta-links'>
                                     <span className='title'>Address</span>
-                                    <span>456, Loandon Street, lorem tisuml, 33454, India</span>
+                                    <span>{siteInfo.primaryAddress}</span>
                                 </div>
                             </div>
                         </motion.div>
@@ -89,7 +101,7 @@ const ContactSect = () => {
                                     </div>
                                     <div className='col-12'><TextField label="Company Name" /></div>
                                     <div className='col-12'><TextField multiline rows={3} label="Write any message..." /></div>
-                                    <div className='col-12'><Button btnType="submit" btnName="Submit Query" /></div>
+                                    <div className='col-12'><Button btnType="button" btnName="Submit Query" /></div>
                                 </div>
                             </form>
                         </div>

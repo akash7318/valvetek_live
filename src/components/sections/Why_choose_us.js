@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import './Why_choose_us.css'
 import CountUp from 'react-countup';
 import Section_title from '../Section_title';
@@ -15,12 +15,12 @@ const Why_choose_us = () => {
   // }
 
   const boxVariantTwo = {
-    visible: { opacity: 1, scale: 1, translateX: 0, transition: {duration: 0.4} },
-    hidden: { opacity: 0.25, scale: 0.65 , translateX: -100},
+    visible: { opacity: 1, scale: 1, translateX: 0, transition: { duration: 0.4 } },
+    hidden: { opacity: 0.25, scale: 0.65, translateX: -100 },
   }
   const boxVariantThree = {
-    visible: { opacity: 1, scale: 1, translateX: 0, transition: {duration: 0.4} },
-    hidden: { opacity: 0.25, scale: 0.65 , translateX: 100},
+    visible: { opacity: 1, scale: 1, translateX: 0, transition: { duration: 0.4 } },
+    hidden: { opacity: 0.25, scale: 0.65, translateX: 100 },
   }
 
   const control = useAnimation()
@@ -43,24 +43,7 @@ const Why_choose_us = () => {
         <div className='row m-b40'>
           <div className='col-lg-4 col-md-6 m-b30'>
             <div
-             className='countup_box'>
-              <div className='icon-box-bg'></div>
-              <div className='icon-box row'>
-                <div className='cout-icon col-4'>
-                  <i className="fa-solid fa-trophy"></i>
-                </div>
-                <div className='col-8'>
-                  <div className='count-text'>
-                    <CountUp end={100} enableScrollSpy scrollSpyOnce="true" /> <span>+</span>
-                  </div>
-                  <p className='count-name'>Awards won</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='col-lg-4 col-md-6 m-b30'>
-            <div 
-             className='countup_box'>
+              className='countup_box'>
               <div className='icon-box-bg'></div>
               <div className='icon-box row'>
                 <div className='cout-icon col-4'>
@@ -68,16 +51,16 @@ const Why_choose_us = () => {
                 </div>
                 <div className='col-8'>
                   <div className='count-text'>
-                    <CountUp end={30} enableScrollSpy scrollSpyOnce="true" /> <span>+</span>
+                    <CountUp end={23} enableScrollSpy scrollSpyOnce="true" /><span>+</span>
                   </div>
-                  <p className='count-name'>Years Served</p>
+                  <p className='count-name'>Years Of Experience</p>
                 </div>
               </div>
             </div>
           </div>
           <div className='col-lg-4 col-md-6 m-b30'>
             <div
-             className='countup_box'>
+              className='countup_box'>
               <div className='icon-box-bg'></div>
               <div className='icon-box row'>
                 <div className='cout-icon col-4'>
@@ -85,9 +68,26 @@ const Why_choose_us = () => {
                 </div>
                 <div className='col-8'>
                   <div className='count-text'>
-                    <CountUp end={10000} enableScrollSpy scrollSpyOnce="true" /> <span>+</span>
+                    <CountUp end={585} enableScrollSpy scrollSpyOnce="true" /> <span>+</span>
                   </div>
-                  <p className='count-name'>Happy Clients</p>
+                  <p className='count-name'>Happy Customers</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='col-lg-4 col-md-6 m-b30'>
+            <div
+              className='countup_box'>
+              <div className='icon-box-bg'></div>
+              <div className='icon-box row'>
+                <div className='cout-icon col-4'>
+                  <i className="fa-solid fa-user-tie"></i>
+                </div>
+                <div className='col-8'>
+                  <div className='count-text'>
+                    <CountUp end={53} enableScrollSpy scrollSpyOnce="true" /> <span>+</span>
+                  </div>
+                  <p className='count-name'>Total Employees</p>
                 </div>
               </div>
             </div>
@@ -95,35 +95,34 @@ const Why_choose_us = () => {
         </div>
 
         <div className='row'>
-          <motion.div 
-              ref={ref}
-              variants={boxVariantTwo}
-              initial="hidden"
-              animate={control}
-           className='col-lg-5'>
+          <motion.div
+            ref={ref}
+            variants={boxVariantTwo}
+            initial="hidden"
+            animate={control}
+            className='col-lg-5'>
             <div className='why-left-img'>
               <img src="./images/img/welcome.png" alt="" />
               <div className='color-layer'><span>Why Us</span></div>
             </div>
           </motion.div>
           <div className='col-lg-7 m-t30'>
-            <Section_title smTitle="Why Choose" mainTitle="We Are Expert In All
-             Industry" />
-            <LoremIpsum p={1} />
+            <Section_title smTitle="Why Valvetek Engineering?" mainTitle="Unveiling Excellence in Dampers and Expansion Joints" />
+            <p>Choose Valvetek Engineering for dampers and expansion joints that redefine industry standards. Experience the difference in precision, reliability, and customer satisfaction.</p>
 
             <div className="row ">
               <div className="col-lg-6 col-md-6 col-sm-12">
                 <ul className="list-why-us">
-                  <li>Our Work Growth</li>
-                  <li>1500 Employed</li>
-                  <li>1500 Employed</li>
+                  <li>Fast Delivery</li>
+                  <li>Minimum Rate</li>
+                  <li>Innovative Design</li>
                 </ul>
               </div>
               <div className="col-lg-6 col-md-6 col-sm-12">
                 <ul className="list-why-us">
-                  <li>Our Employee Growth</li>
-                  <li>Service Management</li>
-                  <li>Service Management</li>
+                  <li>Customized Solutions</li>
+                  <li>Reliability and Durability</li>
+                  <li>Responsive Customer Support</li>
                 </ul>
               </div>
             </div>
@@ -133,8 +132,8 @@ const Why_choose_us = () => {
                 <div className='icon-box row'>
                   <img className='award-img' src="./images/shapes/award.png" alt="" />
                   <div className='award-cont'>
-                    <p className='title'>Best Quality Products Always</p>
-                    <p> Eiusmod tempor incididunt ut labore et dolore magna aliqua. ra maecenas accumsan lacus vel facilisis.</p>
+                    <p className='title'>Quality Assurance</p>
+                    <p> Quality is non-negotiable at Valvetek Engineering. Our products undergo rigorous testing to ensure they meet the highest industry standards, providing you with peace of mind and confidence in your choice.</p>
                   </div>
                 </div>
               </div>

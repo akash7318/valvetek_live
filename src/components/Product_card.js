@@ -2,12 +2,13 @@ import React, { useEffect } from 'react';
 import './Product_card.css';
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Link } from 'react-router-dom';
 
 const Product_card = (props) => {
 
   const boxVariant = {
-    visible: { opacity: 1, scale: 1, translateX: 0, transition: {duration: 0.4} },
-    hidden: { opacity: 0.25, scale: 0.65 , translateX: 180},
+    visible: { opacity: 1, scale: 1, translateX: 0, transition: { duration: 0.4 } },
+    hidden: { opacity: 0.25, scale: 0.65, translateX: 180 },
   }
 
   const control = useAnimation()
@@ -30,10 +31,11 @@ const Product_card = (props) => {
       initial="hidden"
       animate={control}
       className='product-card'>
-      <div className='product-img'><img className='w-100' loading='lazy' src="./images/products/pd1.jpg" alt="" /></div>
+      <div className='product-img'>
+        <img className='w-100' loading='lazy' src={"./images/products/" + props.productImg} alt={props.productName} title={props.productName} /></div>
       <div className='product-name-box'>
         <span className='product-name-title' >Catogery</span>
-        <a className='product-name' href="">{props.productName}</a>
+        <Link to={props.productSlug} className='product-name'>{props.productName}</Link>
       </div>
     </motion.div>
   )
