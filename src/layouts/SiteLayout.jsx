@@ -30,14 +30,14 @@ function SiteLayout() {
             <Nav></Nav>
             <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/about' element={<About />} />
+                <Route path='/company-profile' element={<About />} />
                 <Route path='/contact' element={<Contact />} />
                 <Route path='/sitemap' element={<Sitemap />} />
                 {
                     products
                         ?
                         products.map((value, index) =>
-                            <Route key={index} path={'/' + value.slug} element={<ProductDetail />} />
+                            <Route key={index} path={'/:slug'} element={<ProductDetail />} />
                         )
                         :
                         null

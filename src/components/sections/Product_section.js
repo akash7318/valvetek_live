@@ -31,7 +31,7 @@ const Product_section = () => {
               ?
               products.map((value, index) =>
                 <div key={index} className='col-lg-4 col-md-6 m-b30'>
-                  <Product_card productName={value.name} productSlug={value.slug} productImg={value.img} />
+                  <Product_card productName={value.name} productSlug={'/'} productImg={value.img} />
                 </div>
               )
               :

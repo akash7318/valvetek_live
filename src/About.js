@@ -23,7 +23,6 @@ const About = () => {
     }
   }
 
-
   return (
     <>
       <BreadCrumb name={aboutData.name} />

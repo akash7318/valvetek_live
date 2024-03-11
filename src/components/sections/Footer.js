@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Parser } from 'html-to-react'
 import './Footer.css';
 import Socials from '../nav/Socials';
 import ScrollToTop from 'react-scroll-to-top';
@@ -36,10 +37,10 @@ const Footer = () => {
                                     <ul className='links'>
                                         <li><Link to={'/'}>Home</Link></li>
                                         {/* <li><Link to={''}>Products</Link></li> */}
-                                        <li><Link to={'/about'}>Company Profile</Link></li>
-                                        <li><Link to={'/sitemap'}>Sitemap</Link></li>
-                                        <li><Link to={''}>Market Place</Link></li>
-                                        <li><Link to={'/contact'}>Contact Us</Link></li>
+                                        <li><Link to={'/'}>Company Profile</Link></li>
+                                        <li><Link to={'/'}>Sitemap</Link></li>
+                                        <li><Link to={'/'}>Market Place</Link></li>
+                                        <li><Link to={'/'}>Contact Us</Link></li>
                                     </ul>
                                 </div>
                             </div>
@@ -79,8 +80,8 @@ const Footer = () => {
                                         {/* <img src="./images/logo-valvetek.png" alt="" /> */}
                                         {siteInfo.compName}
                                     </a>
-                                    {siteInfo.footerText}
-                                    <Link to={'/about'} className='read-more-btn'>Contact Us <span className='line'></span> <i className="fa-solid fa-angle-right"></i></Link>
+                                    {Parser().parse(siteInfo.footerText)}
+                                    <Link to={'/'} className='read-more-btn'>Contact Us <span className='line'></span> <i className="fa-solid fa-angle-right"></i></Link>
 
                                     {/* Social links */}
                                     <Socials />

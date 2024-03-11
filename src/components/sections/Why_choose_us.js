@@ -139,7 +139,7 @@ const Why_choose_us = () => {
               </div>
             </div>
 
-            <div className='col-12 m-t40'><Btn_link Href="" btnName="Readmore About" /></div>
+            <div className='col-12 m-t40'><Btn_link Href="/" btnName="Read More" /></div>
           </div>
         </div>
       </div>

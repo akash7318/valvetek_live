@@ -1,4 +1,5 @@
-import {React , useState , useEffect} from 'react';
+import { React, useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import Section_title from '../Section_title';
 import LoremIpsum from 'react-lorem-ipsum';
 // Import Swiper React components
@@ -14,29 +15,46 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const ProductDetailSect = () => {
+
+    const params = useParams();
+
+    const [product, setProduct] = useState([]);
+
     const boxVariant = {
-        visible: { opacity: 1, scale: 1,  transition: {duration: 0.325} },
+        visible: { opacity: 1, scale: 1, transition: { duration: 0.325 } },
         hidden: { opacity: 0.45, scale: 0.75 },
-      }
-    
-      const control = useAnimation()
-      const [ref, inView] = useInView()
-    
-      useEffect(() => {
+    }
+
+    const control = useAnimation()
+    const [ref, inView] = useInView()
+
+    useEffect(() => {
         if (inView) {
-          control.start("visible");
+            control.start("visible");
         }
         else {
-          control.start("hidden");
+            control.start("hidden");
         }
-      }, [control, inView]);
+
+        getProduct();
+
+    }, [control, inView, params]);
     const [thumbsSwiper, setThumbsSwiper] = useState();
+
+    const getProduct = async () => {
+        let result = await fetch(`${process.env.REACT_APP_BASE_URL}product/${params.slug}`);
+        result = await result.json();
+        if (result.status) {
+            setProduct(result.product);
+        }
+    }
+
     return (
         <section className='sect-space'>
             <div className='container'>
                 <div className=''>
                     <div className='floated-pd'>
-                      <img className='pd-img-main' src="./images/products/pd1.jpg" alt="" />
+                        <img className='pd-img-main' src={"./images/products/" + product.img} alt={product.name} title={product.name} />
                     </div>
                     {/* <motion.div 
                     ref={ref}
@@ -98,8 +116,9 @@ const ProductDetailSect = () => {
                             </Swiper>
                         </div>
                     </motion.div> */}
-                    <Section_title smTitle="Product Details" mainTitle="Bibendum potenti taciti ex parturient lacini" />
-                    <LoremIpsum p={5} />
+                    <Section_title smTitle="Product Details" mainTitle={product.shortDescription} />
+                    {product.description}
+                    {product.extraDescription}
                 </div>
             </div>
         </section>

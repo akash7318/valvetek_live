@@ -13,8 +13,8 @@ function SiteInfo() {
     const [secondaryMail, setSecondaryMail] = useState('');
     const [primaryPhone, setPrimaryPhone] = useState('');
     const [secondaryPhone, setSecondaryPhone] = useState('');
-    const [logo, setLogo] = useState([]);
-    const [favicon, setFavicon] = useState([]);
+    const [logo, setLogo] = useState('');
+    const [favicon, setFavicon] = useState('');
     const [primaryAddress, setPrimaryAddress] = useState('');
     const [secondaryAddress, setSecondaryAddress] = useState('');
     const [thirdAddress, setThirdAddress] = useState('');

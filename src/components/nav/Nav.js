@@ -56,12 +56,12 @@ const Nav = () => {
                     <div className='row'>
                         <div className='col-lg-12'>
                             <div className='mainmenu-wrapper'>
-                                <div className='logo-box'> <Link to={'/'}><img src={'./images/' + siteInfo.logo} alt={siteInfo.name} title={siteInfo.name} /></Link> </div>
+                                <div className='logo-box'> <Link to={'/'}><img src={'./images/' + siteInfo.logo} alt={siteInfo.compName} title={siteInfo.compName} /></Link> </div>
                                 <div className='Mainmenu'>
                                     {/* menu list appear here */}
                                     <MenuList />
                                 </div>
-                                <Btn_link Href="/about" addClass='' btnName="Request Quote" />
+                                <Btn_link Href="/" addClass='' btnName="Request Quote" />
                                 <span onClick={toggleSidenav} className='menuBtn'><i className="fa-solid fa-bars-staggered"></i></span>
                             </div>
                         </div>

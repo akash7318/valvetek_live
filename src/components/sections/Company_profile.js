@@ -40,7 +40,7 @@ const Company_profile = (props) => {
               <p>{props.pageData.description}</p>
               <p>{props.pageData.extraDescription}</p>
               <div className='row align-items-center mt-4'>
-                <Btn_link Href="./about" btnName="Company Profile" />
+                <Btn_link Href="/" btnName="Company Profile" />
                 {/* <div className="abt-contact-content ">
                   <div className="contact-icon">
                     <i className="fa-solid fa-phone-volume"></i>
@@ -68,7 +68,7 @@ const Company_profile = (props) => {
                 <div className='abt-left-img'>
                   <img className='w-100' loading='lazy' src="images/img/about-2.jpg" alt="" />
                 </div>
-                <img className='w-50' loading='lazy' src={"images/pages/" + props.pageData.img} alt={props.pageData.shortDescription} title={props.pageData.shortDescription} />
+                <img className='w-50' loading='lazy' src={"./images/pages/" + props.pageData.img} alt={props.pageData.shortDescription} title={props.pageData.shortDescription} />
               </div>
             </motion.div>
           </div>

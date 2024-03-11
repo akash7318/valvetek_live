@@ -30,7 +30,7 @@ const HasChildMenu = (props) => {
                     products
                         ?
                         products.map((value, index) =>
-                            <li key={index}><Link to={value.slug}>{value.name}</Link></li>
+                            <li key={index}><Link to={'/'}>{value.name}</Link></li>
                         )
                         :
                         null
