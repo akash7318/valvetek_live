@@ -26,7 +26,7 @@ const About = () => {
 
   return (
     <>
-      <BreadCrumb />
+      <BreadCrumb name={aboutData.name} />
       <Company_profile pageData={aboutData} />
       <ProductSlider />
       <ProductDetailSect />
