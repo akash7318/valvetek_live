@@ -5,7 +5,7 @@ import BreadCrumb from './components/sections/BreadCrumb'
 const Contact = () => {
   return (
     <>
-       <BreadCrumb />
+      <BreadCrumb name="Contact Us" />
       <ContactSect />
     </>
   )

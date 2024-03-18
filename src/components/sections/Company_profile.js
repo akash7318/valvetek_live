@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Parser } from 'html-to-react'
 import './Company_profile.css';
 import { LoremIpsum } from 'react-lorem-ipsum';
 import Section_title from '../Section_title';
@@ -37,8 +38,8 @@ const Company_profile = (props) => {
               <div>
                 <Section_title smTitle="About Company" mainTitle={props.pageData.shortDescription} />
               </div>
-              <p>{props.pageData.description}</p>
-              <p>{props.pageData.extraDescription}</p>
+              <p>{Parser().parse(props.pageData.description)}</p>
+              <p>{Parser().parse(props.pageData.extraDescription)}</p>
               <div className='row align-items-center mt-4'>
                 <Btn_link Href="/" btnName="Company Profile" />
                 {/* <div className="abt-contact-content ">

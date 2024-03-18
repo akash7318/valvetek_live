@@ -15,7 +15,7 @@ const PageNavi = (props) => {
     return (
         <div className='w-100'>
             <Link to={props.link}>
-                <div className={props.addClass + ' page_nvi'} onClick={props.hasChild ? openChild : null} >
+                <div className={props.addClass + ' shadow-sm page_nvi'} onClick={props.hasChild ? openChild : null} >
                     <div className='name_Icon'>
                         <span>{props.pageIcon}</span>
                         <span>{props.pageName}</span>
@@ -31,10 +31,10 @@ const PageNavi = (props) => {
             </Link>
             {
                 props.hasChild
-                ?
+                    ?
                     <PageNaviChild addClass={isActive ? "active" : ""} childs={props.childrens} />
-                :
-                null
+                    :
+                    null
             }
         </div>
     )

@@ -13,6 +13,7 @@ import { useInView } from "react-intersection-observer";
 const ContactSect = () => {
 
     const [siteInfo, setSiteInfo] = useState([]);
+    const [products, setProduct] = useState([]);
 
     const boxVariant = {
         visible: { opacity: 1, scale: 1, transition: { duration: 0.325 } },
@@ -24,6 +25,7 @@ const ContactSect = () => {
 
     useEffect(() => {
         getSiteInfo();
+        getProducts();
         if (inView) {
             control.start("visible");
         }
@@ -39,6 +41,15 @@ const ContactSect = () => {
             setSiteInfo(result.siteInfo);
         }
     }
+
+    const getProducts = async () => {
+        let result = await fetch(`${process.env.REACT_APP_BASE_URL}products`)
+        result = await result.json();
+        if (result.status) {
+            setProduct(result.products);
+        }
+    }
+
     return (
         <section className='sect-space '>
             <div className='container'>
@@ -59,6 +70,7 @@ const ContactSect = () => {
                                     <span className='title'>Phone</span>
                                     <a href={"tel:" + siteInfo.primaryPhone}>{siteInfo.primaryPhone}</a>
                                     <a href={"tel:" + siteInfo.secondaryPhone}>{siteInfo.secondaryPhone}</a>
+                                    <a href="tel:+91 7003927392">+91 7003927392</a>
                                 </div>
                             </div>
                             <div className='contacts-box'>
@@ -92,9 +104,15 @@ const ContactSect = () => {
                                                 label="Select product"
                                             // onChange={handleChange}
                                             >
-                                                <MenuItem value={10}>Ten</MenuItem>
-                                                <MenuItem value={20}>Twenty</MenuItem>
-                                                <MenuItem value={30}>Thirty</MenuItem>
+                                                {
+                                                    products
+                                                        ?
+                                                        products.map((value, index) =>
+                                                            <MenuItem key={index} value={value.name}>{value.name}</MenuItem>
+                                                        )
+                                                        :
+                                                        null
+                                                }
                                             </Select>
                                         </FormControl>
 

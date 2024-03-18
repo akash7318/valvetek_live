@@ -16,6 +16,10 @@ import KeywordInCity from '../admin/pages/KeywordInCity';
 import OurPresenceInCity from '../admin/pages/OurPresenceInCity';
 
 import PrivateComponent from '../components/PrivateComponent';
+import Location from '../admin/pages/Location';
+import LocationData from '../admin/pages/LocationData';
+import ParantLocation from '../admin/pages/ParantLocation';
+import ParantLocationData from '../admin/pages/ParantLocationData';
 
 function SiteLayout() {
     return (
@@ -42,6 +46,14 @@ function SiteLayout() {
 
                 <Route path='/admin/keywordInCity' element={<KeywordInCity />} />
                 <Route path='/admin/ourPresenceInCity' element={<OurPresenceInCity />} />
+
+                <Route path='/admin/location' element={<Location />} />
+                <Route path='/admin/location/data' element={<LocationData />} />
+                <Route path='/admin/location/data/:_id' element={<LocationData />} />
+
+                <Route path='/admin/parantLocation' element={<ParantLocation />} />
+                <Route path='/admin/parantLocation/data' element={<ParantLocationData />} />
+                <Route path='/admin/parantLocation/data/:_id' element={<ParantLocationData />} />
             </Route>
 
             <Route path='/login' element={<Login />} />

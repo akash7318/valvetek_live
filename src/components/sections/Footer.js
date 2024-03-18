@@ -54,6 +54,7 @@ const Footer = () => {
                                             <span className='title'>Phone</span>
                                             <a href={"tel:" + siteInfo.primaryPhone}>{siteInfo.primaryPhone}</a>
                                             <a href={"tel:" + siteInfo.secondaryPhone}>{siteInfo.secondaryPhone}</a>
+                                            <a href="tel:+91 7003927392">+91 7003927392</a>
                                         </div>
                                     </div>
                                     <div className='contacts-box'>
@@ -93,7 +94,7 @@ const Footer = () => {
                         <div className='container'>
                             <div className='row'>
                                 <div className='col-12 '>
-                                    <div className='copy-right-text'><span>Copyright © 2024 by Meri Dairy | Website Designed & Promoted by Insta Vyapar </span><a href="https://www.instavyapar.com/our-services/digital-marketing/google-promotion.html" target="_blank">Google Promotion Services</a></div>
+                                    <div className='copy-right-text'><span>Copyright © 2024 by {siteInfo.compName} | Website Designed & Promoted by Insta Vyapar </span><a href="https://www.instavyapar.com/our-services/digital-marketing/google-promotion.html" target="_blank">Google Promotion Services</a></div>
                                 </div>
                             </div>
                         </div>

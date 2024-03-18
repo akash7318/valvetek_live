@@ -1,10 +1,11 @@
-import React , {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Link } from 'react-router-dom';
 
 const MarketBtn = (props) => {
   const boxVariant = {
-    visible: { opacity: 1, scale: 1,  transition: {duration: 0.325} },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.325 } },
     hidden: { opacity: 0.45, scale: 0.75 },
   }
 
@@ -21,13 +22,13 @@ const MarketBtn = (props) => {
   }, [control, inView]);
 
   return (
-    <motion.div 
-    ref={ref}
-    variants={boxVariant}
-    initial="hidden"
-    animate={control}
+    <motion.div
+      ref={ref}
+      variants={boxVariant}
+      initial="hidden"
+      animate={control}
     >
-      <a className={props.addClass  + ' ' + 'thm-btn w-100 text-center market-btn'} href={props.Href}>{props.locationName} </a>
+      <Link className={props.addClass + ' ' + 'thm-btn w-100 text-center market-btn'} to={props.Href}>{props.locationName} </Link>
     </motion.div >
   )
 }

@@ -8,6 +8,7 @@ import Contact from '../Contact';
 import Sitemap from '../Sitemap';
 import ProductDetail from '../ProductDetail';
 import Footer from '../components/sections/Footer';
+import MarketPlace from '../MarketPlace';
 
 function SiteLayout() {
 
@@ -42,6 +43,7 @@ function SiteLayout() {
                         :
                         null
                 }
+                <Route path='/market-place' element={<MarketPlace />} />
             </Routes>
             <Footer></Footer>
         </>

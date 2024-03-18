@@ -6,8 +6,8 @@ const Sitemap = () => {
   return (
 
     <>
-     <BreadCrumb />
-     <SitemapSect />
+      <BreadCrumb name="Sitemap" />
+      <SitemapSect />
     </>
 
   )

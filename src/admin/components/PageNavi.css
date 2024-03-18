@@ -15,11 +15,15 @@
 .page_nvi.active,
 .page_nvi:hover {
     background: rgb(224 242 254);
+    margin-left: 8px;
+    /* width: 105%; */
 }
-.page_nvi span{
+
+.page_nvi span {
     line-height: 1;
 }
-.name_Icon{
+
+.name_Icon {
     display: flex;
     align-items: center;
     gap: 8px;

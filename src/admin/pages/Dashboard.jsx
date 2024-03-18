@@ -34,7 +34,7 @@ function Dashboard() {
             'link': '/admin/site-info'
         },
         {
-            'title': 'Banner',
+            'title': 'Banners',
             'heading': dashboard.bannerCount,
             'icon': <ViewCarouselIcon className='fs-1' />,
             'link': '/admin/banner'
@@ -52,7 +52,7 @@ function Dashboard() {
             'link': '/admin/product'
         },
         {
-            'title': 'Promotional Category',
+            'title': 'Promotional Categories',
             'heading': dashboard.promotionalCategoryCount,
             'icon': <GradingIcon className='fs-1' />,
             'link': '/admin/promotionalCategory'
@@ -69,12 +69,18 @@ function Dashboard() {
             'icon': <AddLocationAltIcon className='fs-1' />,
             'link': '/admin/ourPresenceInCity'
         },
-        // {
-        //     'title': 'Location',
-        //     'heading': "In City",
-        //     'icon': <LocationOnIcon className='fs-1' />,
-        //     'link': '/admin/ourPresenceInCity'
-        // }
+        {
+            'title': 'Location',
+            'heading': dashboard.locationCount,
+            'icon': <LocationOnIcon className='fs-1' />,
+            'link': '/admin/location'
+        },
+        {
+            'title': 'Parant Location',
+            'heading': dashboard.parantLocationCount,
+            'icon': <LocationOnIcon className='fs-1' />,
+            'link': '/admin/parantLocation'
+        }
     ];
 
     return (

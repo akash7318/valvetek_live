@@ -30,7 +30,7 @@ const Home = () => {
       <Company_profile pageData={homeData} />
       <Product_section />
       <Why_choose_us />
-      <Testimonial />
+      {/* <Testimonial /> */}
       <ContactSect />
     </>
   )
