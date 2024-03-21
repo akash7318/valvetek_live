@@ -6,6 +6,7 @@ import Product_section from './components/sections/Product_section';
 import Why_choose_us from './components/sections/Why_choose_us';
 import ContactSect from './components/sections/ContactSect';
 import Testimonial from './components/sections/Testimonial';
+import { Helmet } from "react-helmet";
 
 const Home = () => {
 
@@ -25,6 +26,10 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Home Page</title>
+      </Helmet>
       <Home_banner />
       <Features_sect />
       <Company_profile pageData={homeData} />

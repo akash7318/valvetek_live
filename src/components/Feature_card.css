@@ -6,6 +6,11 @@
     overflow: hidden;
     position: relative;
 }
+/* @media (min-width: 768px) {
+    .feat-card{
+        min-height: 435px;
+    }
+} */
 .feat-card::before{
     content: '';
     background: rgba(255, 0, 0, 0.826);
@@ -46,7 +51,7 @@
     z-index: 4;
 }
 .feat-card-content .title{
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 600;
     color: black;
     transition: all 400ms linear;

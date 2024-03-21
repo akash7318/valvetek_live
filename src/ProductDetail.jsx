@@ -4,6 +4,7 @@ import ProductDetailSect from './components/sections/ProductDetailSect'
 import ProductSlider from './components/sections/ProductSlider'
 import ContactSect from './components/sections/ContactSect'
 import BreadCrumb from './components/sections/BreadCrumb'
+import { Helmet } from "react-helmet";
 
 const ProductDetail = () => {
 
@@ -27,6 +28,10 @@ const ProductDetail = () => {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Product Detail Page</title>
+      </Helmet>
       <BreadCrumb name={product.name} />
       <ProductDetailSect />
       <ProductSlider />
