@@ -3,6 +3,7 @@ import ContactSect from './components/sections/ContactSect';
 import BreadCrumb from './components/sections/BreadCrumb';
 import SubdomainSec from './components/sections/SubdomainSec';
 import HelmetComp from './components/HelmetComp';
+import Nav from './components/nav/Nav';
 
 function Subdomain(props) {
 
@@ -25,6 +26,7 @@ function Subdomain(props) {
     return (
         <>
             <HelmetComp data={subdomain} />
+            <Nav />
             <BreadCrumb name={subdomain.shortDescription} />
             <SubdomainSec subdomain={subdomain} />
             <ContactSect />

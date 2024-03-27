@@ -7,6 +7,7 @@ import Why_choose_us from './components/sections/Why_choose_us';
 import ContactSect from './components/sections/ContactSect';
 import Testimonial from './components/sections/Testimonial';
 import HelmetComp from './components/HelmetComp';
+import Nav from './components/nav/Nav';
 
 const Home = () => {
 
@@ -26,6 +27,7 @@ const Home = () => {
 
   return (
     <>
+      <Nav />
       <HelmetComp data={homeData} />
       <Home_banner />
       <Features_sect />

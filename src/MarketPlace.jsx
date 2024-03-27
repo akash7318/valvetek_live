@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import BreadCrumb from './components/sections/BreadCrumb'
 import { Helmet } from "react-helmet";
 import MarketPlaceSec from './components/sections/MarketPlaceSec';
+import Nav from './components/nav/Nav';
 
 function MarketPlace() {
 
@@ -25,6 +26,7 @@ function MarketPlace() {
                 <meta charSet="utf-8" />
                 <title>Market Place</title>
             </Helmet>
+            <Nav />
             <BreadCrumb name="Market Place" />
             <MarketPlaceSec data={marketPlace} />
         </>

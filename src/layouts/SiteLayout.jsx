@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom';
 import '../App.css';
-import Nav from '../components/nav/Nav';
+// import Nav from '../components/nav/Nav';
 import Home from '../Home';
 import About from '../About';
 import Contact from '../Contact';
@@ -45,7 +45,7 @@ function SiteLayout() {
 
     return (
         <>
-            <Nav name={subdomain} />
+            {/* <Nav name={subdomain} /> */}
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/products' element={<Products />} />

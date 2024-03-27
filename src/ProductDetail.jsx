@@ -4,8 +4,8 @@ import ProductDetailSect from './components/sections/ProductDetailSect';
 import ProductSlider from './components/sections/ProductSlider';
 import ContactSect from './components/sections/ContactSect';
 import BreadCrumb from './components/sections/BreadCrumb';
-import { Helmet } from "react-helmet";
 import HelmetComp from './components/HelmetComp';
+import Nav from './components/nav/Nav';
 
 const ProductDetail = (props) => {
 
@@ -28,6 +28,7 @@ const ProductDetail = (props) => {
   return (
     <>
       <HelmetComp data={product} />
+      <Nav />
       <BreadCrumb name={product.name} />
       <ProductDetailSect slug={props.slug} />
       <ProductSlider />

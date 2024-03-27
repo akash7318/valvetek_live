@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import BreadCrumb from './components/sections/BreadCrumb'
 import OurPresenceInCitySec from './components/sections/OurPresenceInCitySec';
 import HelmetComp from './components/HelmetComp';
+import Nav from './components/nav/Nav';
 
 function OurPresenceInCity(props) {
 
@@ -23,6 +24,7 @@ function OurPresenceInCity(props) {
     return (
         <>
             <HelmetComp data={ourPresenceInCity} />
+            <Nav />
             <BreadCrumb name={ourPresenceInCity.shortDescription} />
             <OurPresenceInCitySec data={ourPresenceInCity} />
         </>

@@ -7,6 +7,7 @@ import ProductSlider from './components/sections/ProductSlider';
 import ProductDetailSect from './components/sections/ProductDetailSect';
 import { Helmet } from "react-helmet";
 import HelmetComp from './components/HelmetComp';
+import Nav from './components/nav/Nav';
 
 const About = () => {
 
@@ -27,6 +28,7 @@ const About = () => {
 
   return (
     <>
+      <Nav />
       <HelmetComp data={aboutData} />
       <BreadCrumb name={aboutData.name} />
       <Company_profile pageData={aboutData} />
