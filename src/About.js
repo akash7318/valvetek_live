@@ -6,6 +6,7 @@ import Sitemap from './components/sections/SitemapSect';
 import ProductSlider from './components/sections/ProductSlider';
 import ProductDetailSect from './components/sections/ProductDetailSect';
 import { Helmet } from "react-helmet";
+import HelmetComp from './components/HelmetComp';
 
 const About = () => {
 
@@ -26,10 +27,7 @@ const About = () => {
 
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>About Page </title>
-      </Helmet>
+      <HelmetComp data={aboutData} />
       <BreadCrumb name={aboutData.name} />
       <Company_profile pageData={aboutData} />
       <ContactSect />

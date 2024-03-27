@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Parser } from 'html-to-react'
 import './Company_profile.css';
-import { LoremIpsum } from 'react-lorem-ipsum';
 import Section_title from '../Section_title';
 import Btn_link from '../Btn_link';
 import { motion, useAnimation } from "framer-motion";
@@ -36,10 +35,10 @@ const Company_profile = (props) => {
             <div
               className='col-lg-6'>
               <div>
-                <Section_title smTitle="About Company" mainTitle={props.pageData.shortDescription} />
+                <Section_title smTitle="About Company" homeTitle={props.homeTitle} mainTitle={props.pageData.shortDescription} />
               </div>
-              <p>{Parser().parse(props.pageData.description)}</p>
-              <p>{Parser().parse(props.pageData.extraDescription)}</p>
+              {Parser().parse(props.pageData.description)}
+              {Parser().parse(props.pageData.extraDescription)}
               <div className='row align-items-center mt-4'>
                 <Btn_link Href="/" btnName="Company Profile" />
                 {/* <div className="abt-contact-content ">

@@ -34,7 +34,7 @@ const Product_card = (props) => {
       <div className='product-img'>
         <img className='w-100' loading='lazy' src={"./images/products/" + props.productImg} alt={props.productName} title={props.productName} /></div>
       <div className='product-name-box'>
-        <span className='product-name-title' >Catogery</span>
+        {/* <span className='product-name-title' >Catogery</span> */}
         <Link to={props.productSlug} className='product-name'>{props.productName}</Link>
       </div>
     </motion.div>

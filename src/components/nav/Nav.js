@@ -8,7 +8,7 @@ import PermPhoneMsgIcon from '@mui/icons-material/PermPhoneMsg';
 import ForwardToInboxIcon from '@mui/icons-material/ForwardToInbox';
 import { Link } from 'react-router-dom';
 
-const Nav = () => {
+const Nav = (props) => {
 
     const [isOpen, setIsopen] = useState(false);
     const [siteInfo, setSiteInfo] = useState([]);
@@ -17,10 +17,6 @@ const Nav = () => {
         setIsopen(!isOpen);
     }
 
-    useEffect(() => {
-        getSiteInfo();
-    }, [])
-
     const getSiteInfo = async () => {
         let result = await fetch(`${process.env.REACT_APP_BASE_URL}siteInfo`);
         result = await result.json();
@@ -28,6 +24,10 @@ const Nav = () => {
             setSiteInfo(result.siteInfo);
         }
     }
+
+    useEffect(() => {
+        getSiteInfo();
+    }, []);
 
     return (
         <>
@@ -59,9 +59,9 @@ const Nav = () => {
                                 <div className='logo-box'> <Link to={'/'}><img src={'./images/' + siteInfo.logo} alt={siteInfo.compName} title={siteInfo.compName} /></Link> </div>
                                 <div className='Mainmenu'>
                                     {/* menu list appear here */}
-                                    <MenuList />
+                                    <MenuList subdomain={props.name} />
                                 </div>
-                                <Btn_link Href="/" addClass='' btnName="Request Quote" />
+                                <Btn_link Href="/contact" addClass='' btnName="Request Quote" />
                                 <span onClick={toggleSidenav} className='menuBtn'><i className="fa-solid fa-bars-staggered"></i></span>
                             </div>
                         </div>

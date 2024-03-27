@@ -1,20 +1,18 @@
 import { React, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Parser } from 'html-to-react';
+import { useInView } from "react-intersection-observer";
+import { useAnimation } from "framer-motion";
 import Section_title from '../Section_title';
-import LoremIpsum from 'react-lorem-ipsum';
 // Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 // import required modules
-import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 
-const ProductDetailSect = () => {
+const ProductDetailSect = (props) => {
 
     const params = useParams();
 
@@ -42,7 +40,7 @@ const ProductDetailSect = () => {
     const [thumbsSwiper, setThumbsSwiper] = useState();
 
     const getProduct = async () => {
-        let result = await fetch(`${process.env.REACT_APP_BASE_URL}product/${params.slug}`);
+        let result = await fetch(`${process.env.REACT_APP_BASE_URL}product/${props.slug}`);
         result = await result.json();
         if (result.status) {
             setProduct(result.product);
@@ -117,8 +115,8 @@ const ProductDetailSect = () => {
                         </div>
                     </motion.div> */}
                     <Section_title smTitle="Product Details" mainTitle={product.shortDescription} />
-                    {product.description}
-                    {product.extraDescription}
+                    {Parser().parse(product.description)}
+                    {Parser().parse(product.extraDescription)}
                 </div>
             </div>
         </section>

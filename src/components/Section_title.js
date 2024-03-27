@@ -4,7 +4,14 @@ const Section_title = (props) => {
     return (
         <>
             <span className='sm-title'>{props.smTitle}</span>
-            <p className='sect-title'>{props.mainTitle}</p>
+            {
+                props.homeTitle
+                    ?
+                    <h1 className='sect-title'>{props.homeTitle}</h1>
+                    :
+                    <h2 className='sect-title'>{props.mainTitle}</h2>
+
+            }
         </>
     )
 }

@@ -36,11 +36,11 @@ const Footer = () => {
                                     <p className='title-ft'>Useful Links</p>
                                     <ul className='links'>
                                         <li><Link to={'/'}>Home</Link></li>
-                                        {/* <li><Link to={''}>Products</Link></li> */}
-                                        <li><Link to={'/'}>Company Profile</Link></li>
-                                        <li><Link to={'/'}>Sitemap</Link></li>
-                                        <li><Link to={'/'}>Market Place</Link></li>
-                                        <li><Link to={'/'}>Contact Us</Link></li>
+                                        <li><Link to={'/products'}>Products</Link></li>
+                                        <li><Link to={'/company-profile'}>Company Profile</Link></li>
+                                        <li><Link to={'/sitemap'}>Sitemap</Link></li>
+                                        <li><Link to={'/market-place'}>Market Place</Link></li>
+                                        <li><Link to={'/contact'}>Contact Us</Link></li>
                                     </ul>
                                 </div>
                             </div>
@@ -77,12 +77,12 @@ const Footer = () => {
                             </div>
                             <div className='col-lg-5 col-md-6'>
                                 <div className='ft-logo-box'>
-                                    <a href='' className='ft-logo'>
+                                    <Link to='/' className='ft-logo'>
                                         {/* <img src="./images/logo-valvetek.png" alt="" /> */}
                                         {siteInfo.compName}
-                                    </a>
+                                    </Link>
                                     {Parser().parse(siteInfo.footerText)}
-                                    <Link to={'/'} className='read-more-btn'>Contact Us <span className='line'></span> <i className="fa-solid fa-angle-right"></i></Link>
+                                    <Link to={'/contact'} className='read-more-btn'>Contact Us <span className='line'></span> <i className="fa-solid fa-angle-right"></i></Link>
 
                                     {/* Social links */}
                                     <Socials />

@@ -1,12 +1,17 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const HasChildMenu = (props) => {
 
     const [products, setProduct] = useState([]);
+    const [promotionalCategory, setPromotionalCategory] = useState([]);
+
     useEffect(() => {
         getProducts();
+        if (props.subdomain !== undefined && props.subdomain.length > 0) {
+            getPromotionalCategory(props.subdomain);
+        }
     }, []);
 
     const getProducts = async () => {
@@ -17,6 +22,13 @@ const HasChildMenu = (props) => {
         }
     }
 
+    const getPromotionalCategory = async (subdomain) => {
+        let result = await fetch(`${process.env.REACT_APP_BASE_URL}promotionalCategory/${subdomain}`)
+        result = await result.json();
+        if (result.status) {
+            setPromotionalCategory(result.promotionalCategory);
+        }
+    }
 
     const [isOpen, setIsopen] = useState(false);
     const toggleDropdown = () => {
@@ -24,13 +36,24 @@ const HasChildMenu = (props) => {
     }
 
     return (
-        <li className='hasChild'><Link to="/">Products</Link><i onClick={toggleDropdown} className="fa-solid fa-angle-down"></i>
+        <li className='hasChild'><Link to="/products">Products</Link><i onClick={toggleDropdown} className="fa-solid fa-angle-down"></i>
             <ul className={isOpen ? 'active' : ''}>
                 {
                     products
                         ?
                         products.map((value, index) =>
-                            <li key={index}><Link to={'/'}>{value.name}</Link></li>
+                            <li key={index}>
+                                <a
+                                    href={value.slug}
+                                // href={(
+                                //     (promotionalCategory && promotionalCategory.slug)
+                                //         ?
+                                //         promotionalCategory.slug
+                                //         :
+                                //         ""
+                                // ) + "/" + value.slug}
+                                >{value.name}
+                                </a></li>
                         )
                         :
                         null
