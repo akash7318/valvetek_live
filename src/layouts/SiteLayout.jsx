@@ -1,25 +1,23 @@
 import React, { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom';
 import '../App.css';
-// import Nav from '../components/nav/Nav';
 import Home from '../Home';
 import About from '../About';
 import Contact from '../Contact';
 import Sitemap from '../Sitemap';
 import ProductDetail from '../ProductDetail';
-import Footer from '../components/sections/Footer';
 import MarketPlace from '../MarketPlace';
 import Products from '../Products';
 import ProductList from '../components/sections/ProductList';
 import Subdomain from '../Subdomain';
 import OurPresenceInCity from '../OurPresenceInCity';
+import KeywordInCity from '../KeywordInCity';
 
 function SiteLayout() {
 
     const [products, setProduct] = useState([]);
     const [locations, setLocations] = useState([]);
     const [promotionalCategories, setPromotionalCategories] = useState([]);
-    const [subdomain, setSubdomain] = useState([]);
 
     const getProducts = async () => {
         let result = await fetch(`${process.env.REACT_APP_BASE_URL}products`);
@@ -79,7 +77,7 @@ function SiteLayout() {
                                             <Route
                                                 key={key}
                                                 path={'/' + value.slug + "/" + item.slug}
-                                                element={<Subdomain subdomain={setSubdomain} categorySlug={value.slug} productSlug={item.slug} />}
+                                                element={<Subdomain categorySlug={value.slug} productSlug={item.slug} />}
                                             />
                                         )
                                         :
@@ -97,6 +95,24 @@ function SiteLayout() {
                             <>
                                 <Route key={index} path={'/' + value.parantSlug} element={<OurPresenceInCity slug={value.parantSlug} />} />
                                 {
+                                    products
+                                        ?
+                                        products.map((item, key) =>
+                                            <Route
+                                                key={key}
+                                                path={'/' + value.parantSlug + '/' + item.slug}
+                                                element={
+                                                    <KeywordInCity
+                                                        locationSlug={value.parantSlug}
+                                                        productSlug={item.slug}
+                                                    />
+                                                }
+                                            />
+                                        )
+                                        :
+                                        null
+                                }
+                                {
                                     value.cities.map((item, key) =>
                                         <Route key={key} path={'/' + item.slug} element={<OurPresenceInCity slug={item.slug} />} />
                                     )
@@ -107,7 +123,6 @@ function SiteLayout() {
                         null
                 }
             </Routes>
-            <Footer></Footer>
         </>
     )
 }

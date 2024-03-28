@@ -5,13 +5,9 @@ import { Link } from 'react-router-dom';
 const HasChildMenu = (props) => {
 
     const [products, setProduct] = useState([]);
-    const [promotionalCategory, setPromotionalCategory] = useState([]);
 
     useEffect(() => {
         getProducts();
-        if (props.subdomain !== undefined && props.subdomain.length > 0) {
-            getPromotionalCategory(props.subdomain);
-        }
     }, []);
 
     const getProducts = async () => {
@@ -19,14 +15,6 @@ const HasChildMenu = (props) => {
         result = await result.json();
         if (result.status) {
             setProduct(result.products);
-        }
-    }
-
-    const getPromotionalCategory = async (subdomain) => {
-        let result = await fetch(`${process.env.REACT_APP_BASE_URL}promotionalCategory/${subdomain}`)
-        result = await result.json();
-        if (result.status) {
-            setPromotionalCategory(result.promotionalCategory);
         }
     }
 
@@ -43,23 +31,22 @@ const HasChildMenu = (props) => {
                         ?
                         products.map((value, index) =>
                             <li key={index}>
-                                <a
-                                    href={value.slug}
-                                // href={(
-                                //     (promotionalCategory && promotionalCategory.slug)
-                                //         ?
-                                //         promotionalCategory.slug
-                                //         :
-                                //         ""
-                                // ) + "/" + value.slug}
-                                >{value.name}
-                                </a></li>
+                                <Link
+                                    to={
+                                        props.data !== undefined
+                                            ?
+                                            "/" + props.data.slug + "/" + value.slug
+                                            :
+                                            "/" + value.slug
+                                    }
+                                > {value.name}
+                                </Link></li>
                         )
                         :
                         null
                 }
-            </ul>
-        </li>
+            </ul >
+        </li >
     )
 }
 

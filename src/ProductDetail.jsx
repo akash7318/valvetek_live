@@ -6,6 +6,7 @@ import ContactSect from './components/sections/ContactSect';
 import BreadCrumb from './components/sections/BreadCrumb';
 import HelmetComp from './components/HelmetComp';
 import Nav from './components/nav/Nav';
+import Footer from './components/sections/Footer';
 
 const ProductDetail = (props) => {
 
@@ -33,6 +34,7 @@ const ProductDetail = (props) => {
       <ProductDetailSect slug={props.slug} />
       <ProductSlider />
       <ContactSect />
+      <Footer />
     </>
   )
 }

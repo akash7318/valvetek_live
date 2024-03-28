@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import MarketBtn from '../MarketBtn';
 import Section_title from '../Section_title';
 import BreadCrumb from './BreadCrumb';
+import Nav from '../nav/Nav';
+import Footer from './Footer';
 
 function ProductList(props) {
 
@@ -31,6 +33,7 @@ function ProductList(props) {
 
     return (
         <>
+            <Nav />
             <BreadCrumb name={promotionalCategory.name} />
             <section className='sect-space p-t30'>
                 <div className='container'>
@@ -52,6 +55,7 @@ function ProductList(props) {
                     </div>
                 </div>
             </section>
+            <Footer />
         </>
     )
 }

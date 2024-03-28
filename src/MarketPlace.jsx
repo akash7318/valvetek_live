@@ -3,6 +3,7 @@ import BreadCrumb from './components/sections/BreadCrumb'
 import { Helmet } from "react-helmet";
 import MarketPlaceSec from './components/sections/MarketPlaceSec';
 import Nav from './components/nav/Nav';
+import Footer from './components/sections/Footer';
 
 function MarketPlace() {
 
@@ -29,6 +30,7 @@ function MarketPlace() {
             <Nav />
             <BreadCrumb name="Market Place" />
             <MarketPlaceSec data={marketPlace} />
+            <Footer />
         </>
     )
 }

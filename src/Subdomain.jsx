@@ -4,16 +4,18 @@ import BreadCrumb from './components/sections/BreadCrumb';
 import SubdomainSec from './components/sections/SubdomainSec';
 import HelmetComp from './components/HelmetComp';
 import Nav from './components/nav/Nav';
+import { useParams } from 'react-router-dom';
+import Footer from './components/sections/Footer';
 
 function Subdomain(props) {
+
+    const param = useParams();
 
     const [subdomain, setSubdomain] = useState([]);
 
     useEffect(() => {
         getSubdomain();
-        let pathname = window.location.pathname.split('/')[1];
-        props.subdomain(pathname);
-    }, []);
+    }, [param]);
 
     const getSubdomain = async () => {
         let result = await fetch(`${process.env.REACT_APP_BASE_URL}subdomain/${props.categorySlug}/${props.productSlug}`);
@@ -26,10 +28,11 @@ function Subdomain(props) {
     return (
         <>
             <HelmetComp data={subdomain} />
-            <Nav />
+            <Nav data={subdomain} />
             <BreadCrumb name={subdomain.shortDescription} />
             <SubdomainSec subdomain={subdomain} />
             <ContactSect />
+            <Footer />
         </>
     )
 }

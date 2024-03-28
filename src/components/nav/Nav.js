@@ -59,7 +59,7 @@ const Nav = (props) => {
                                 <div className='logo-box'> <Link to={'/'}><img src={'./images/' + siteInfo.logo} alt={siteInfo.compName} title={siteInfo.compName} /></Link> </div>
                                 <div className='Mainmenu'>
                                     {/* menu list appear here */}
-                                    <MenuList subdomain={props.name} />
+                                    <MenuList data={props.data} />
                                 </div>
                                 <Btn_link Href="/contact" addClass='' btnName="Request Quote" />
                                 <span onClick={toggleSidenav} className='menuBtn'><i className="fa-solid fa-bars-staggered"></i></span>

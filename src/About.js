@@ -8,6 +8,7 @@ import ProductDetailSect from './components/sections/ProductDetailSect';
 import { Helmet } from "react-helmet";
 import HelmetComp from './components/HelmetComp';
 import Nav from './components/nav/Nav';
+import Footer from './components/sections/Footer';
 
 const About = () => {
 
@@ -33,6 +34,7 @@ const About = () => {
       <BreadCrumb name={aboutData.name} />
       <Company_profile pageData={aboutData} />
       <ContactSect />
+      <Footer />
     </>
   )
 }

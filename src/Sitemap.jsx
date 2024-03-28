@@ -3,6 +3,7 @@ import SitemapSect from './components/sections/SitemapSect'
 import BreadCrumb from './components/sections/BreadCrumb'
 import { Helmet } from "react-helmet";
 import Nav from './components/nav/Nav';
+import Footer from './components/sections/Footer';
 
 const Sitemap = () => {
   return (
@@ -15,6 +16,7 @@ const Sitemap = () => {
       <Nav />
       <BreadCrumb name="Sitemap" />
       <SitemapSect />
+      <Footer />
     </>
 
   )

@@ -4,6 +4,7 @@ import ContactSect from './components/sections/ContactSect'
 import BreadCrumb from './components/sections/BreadCrumb'
 import { Helmet } from 'react-helmet'
 import Nav from './components/nav/Nav';
+import Footer from './components/sections/Footer'
 
 function Products() {
     return (
@@ -16,6 +17,7 @@ function Products() {
             <BreadCrumb name="Products" />
             <Product_section />
             <ContactSect />
+            <Footer />
         </>
     )
 }
