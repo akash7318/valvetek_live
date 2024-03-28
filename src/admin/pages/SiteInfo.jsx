@@ -11,8 +11,12 @@ function SiteInfo() {
     const [compName, setCompName] = useState('');
     const [primaryMail, setPrimaryMail] = useState('');
     const [secondaryMail, setSecondaryMail] = useState('');
+    const [thirdMail, setThirdMail] = useState('');
+    const [fourthMail, setFourthMail] = useState('');
     const [primaryPhone, setPrimaryPhone] = useState('');
     const [secondaryPhone, setSecondaryPhone] = useState('');
+    const [thirdPhone, setThirdPhone] = useState('');
+    const [fourthPhone, setFourthPhone] = useState('');
     const [logo, setLogo] = useState('');
     const [favicon, setFavicon] = useState('');
     const [primaryAddress, setPrimaryAddress] = useState('');
@@ -45,8 +49,12 @@ function SiteInfo() {
             setCompName(result.siteInfo.compName);
             setPrimaryMail(result.siteInfo.primaryMail);
             setSecondaryMail(result.siteInfo.secondaryMail);
+            setThirdMail(result.siteInfo.thirdMail);
+            setFourthMail(result.siteInfo.fourthMail);
             setPrimaryPhone(result.siteInfo.primaryPhone);
             setSecondaryPhone(result.siteInfo.secondaryPhone);
+            setThirdPhone(result.siteInfo.thirdPhone);
+            setFourthPhone(result.siteInfo.fourthPhone);
             setPrimaryAddress(result.siteInfo.primaryAddress);
             setSecondaryAddress(result.siteInfo.secondaryAddress);
             setThirdAddress(result.siteInfo.thirdAddress);
@@ -73,8 +81,12 @@ function SiteInfo() {
         data.append("compName", compName);
         data.append("primaryMail", primaryMail);
         data.append("secondaryMail", secondaryMail);
+        data.append("thirdMail", thirdMail);
+        data.append("fourthMail", fourthMail);
         data.append("primaryPhone", primaryPhone);
         data.append("secondaryPhone", secondaryPhone);
+        data.append("thirdPhone", thirdPhone);
+        data.append("fourthPhone", fourthPhone);
         data.append("logo", logo);
         data.append("favicon", favicon);
         data.append("primaryAddress", primaryAddress);
@@ -114,9 +126,9 @@ function SiteInfo() {
                     <div className='shadow w-100 bg-white rounded p-4'>
                         <BreadCrumb pageName="Site Information" />
                         <form onSubmit={submitHandler} className='add_data'>
-                            <div className='row'>
+                        <div className='row'>
                                 <div className='col-12'><h5 className='px-2 text-primary'>Site Information</h5></div>
-                                <div className='col-md-6'>
+                                <div className='col-md-12'>
                                     <AddData
                                         value={compName}
                                         changeFunction={setCompName}
@@ -145,6 +157,24 @@ function SiteInfo() {
                                 </div>
                                 <div className='col-md-6'>
                                     <AddData
+                                        value={thirdMail}
+                                        changeFunction={setThirdMail}
+                                        Label="Third Email"
+                                        inputType="text"
+                                        Placeholder="Email"
+                                    />
+                                </div>
+                                <div className='col-md-6'>
+                                    <AddData
+                                        value={fourthMail}
+                                        changeFunction={setFourthMail}
+                                        Label="Fourth Email"
+                                        inputType="text"
+                                        Placeholder="Email"
+                                    />
+                                </div>
+                                <div className='col-md-6'>
+                                    <AddData
                                         value={primaryPhone}
                                         changeFunction={setPrimaryPhone}
                                         Label="Primary Phone"
@@ -163,38 +193,78 @@ function SiteInfo() {
                                 </div>
                                 <div className='col-md-6'>
                                     <AddData
-                                        changeFunction={setLogo}
-                                        Label="Company Logo"
-                                        inputType="file"
+                                        value={thirdPhone}
+                                        changeFunction={setThirdPhone}
+                                        Label="Third Phone"
+                                        inputType="text"
+                                        Placeholder="Phone"
                                     />
                                 </div>
                                 <div className='col-md-6'>
                                     <AddData
-                                        changeFunction={setFavicon}
-                                        Label="Favicon"
-                                        inputType="file"
+                                        value={fourthPhone}
+                                        changeFunction={setFourthPhone}
+                                        Label="Fourth Phone"
+                                        inputType="text"
+                                        Placeholder="Phone"
                                     />
                                 </div>
+                                <div className='row'>
+                                    <div className='col-md-6'>
+                                        <AddData
+                                            changeFunction={setLogo}
+                                            Label="Company Logo"
+                                            inputType="file"
+                                        />
+                                    </div>
+                                    <div className='col-md-6'>
+                                        <div className="row align-items-center h-100">
+                                            <img className='img-logos-admn' src={'../../images/' + logo} alt={compName} title={compName} />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className='row'>
+                                    <div className='col-md-6'>
+                                        <AddData
+                                            changeFunction={setFavicon}
+                                            Label="Favicon"
+                                            inputType="file"
+                                        />
+                                    </div>
+                                    <div className='col-md-6'>
+                                        <div className="row align-items-center h-100">
+                                            <img className='img-logos-admn' src={'../../images/' + favicon} alt={compName} title={compName} />
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                             <div className='row mt-4'>
                                 <div className='col-12'><h5 className='px-2 text-primary'>Company Address</h5></div>
-                                <div className='col-md-6'>
-                                    <AddData
-                                        value={primaryAddress}
-                                        changeFunction={setPrimaryAddress}
-                                        Label="Primary Address"
-                                        inputType="text"
-                                        Placeholder="Address"
-                                    />
+                                <div className='col-12 textarea-box mt-4'>
+                                    <label htmlFor="">Primary Address :</label>
+                                    <textarea
+                                        name=""
+                                        onChange={(e) => setPrimaryAddress(e.target.value)}
+                                        cols="30"
+                                        rows="10"
+                                        placeholder='Address'
+                                        defaultValue={primaryAddress}
+                                    >
+                                    </textarea>
                                 </div>
-                                <div className='col-md-6'>
-                                    <AddData
-                                        value={secondaryAddress}
-                                        changeFunction={setSecondaryAddress}
-                                        Label="Secondary Address"
-                                        inputType="text"
-                                        Placeholder="Address"
-                                    />
+                                <div className='col-12 textarea-box mt-4'>
+                                    <label htmlFor="">Secondary Address :</label>
+                                    <textarea
+                                        name=""
+                                        onChange={(e) => setSecondaryAddress(e.target.value)}
+                                        cols="30"
+                                        rows="10"
+                                        placeholder='Secondary Address'
+                                        defaultValue={secondaryAddress}
+                                    >
+                                    </textarea>
                                 </div>
                                 <div className='col-md-6'>
                                     <AddData

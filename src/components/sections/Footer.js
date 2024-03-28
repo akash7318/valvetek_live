@@ -4,14 +4,20 @@ import './Footer.css';
 import Socials from '../nav/Socials';
 import ScrollToTop from 'react-scroll-to-top';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const Footer = () => {
-
     const [siteInfo, setSiteInfo] = useState([]);
+    const { pathname } = useLocation();
+
+    // useEffect(() => {
+    //     getSiteInfo();
+    // }, [])
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         getSiteInfo();
-    }, [])
+    }, [pathname]);
 
     const getSiteInfo = async () => {
         let result = await fetch(`${process.env.REACT_APP_BASE_URL}siteInfo`);
