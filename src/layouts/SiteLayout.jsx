@@ -114,7 +114,27 @@ function SiteLayout() {
                                 }
                                 {
                                     value.cities.map((item, key) =>
-                                        <Route key={key} path={'/' + item.slug} element={<OurPresenceInCity slug={item.slug} />} />
+                                        <>
+                                            <Route key={key} path={'/' + item.slug} element={<OurPresenceInCity slug={item.slug} />} />
+                                            {
+                                                products
+                                                    ?
+                                                    products.map((val, i) =>
+                                                        <Route
+                                                            key={i}
+                                                            path={'/' + item.slug + '/' + val.slug}
+                                                            element={
+                                                                <KeywordInCity
+                                                                    locationSlug={item.slug}
+                                                                    productSlug={val.slug}
+                                                                />
+                                                            }
+                                                        />
+                                                    )
+                                                    :
+                                                    null
+                                            }
+                                        </>
                                     )
                                 }
                             </>
