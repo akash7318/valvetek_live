@@ -8,7 +8,7 @@ function SubdomainSec(props) {
             <div className='container'>
                 <div className=''>
                     <div className='floated-pd'>
-                        <img className='pd-img-main' src={"./images/products/" + props.subdomain.img} alt={props.subdomain.shortDescription} title={props.subdomain.shortDescription} />
+                        <img className='pd-img-main' src={process.env.REACT_APP_BASE_URL+"images/products/" + props.subdomain.img} alt={props.subdomain.shortDescription} title={props.subdomain.shortDescription} />
                     </div>
                     <Section_title smTitle="Product Details" mainTitle={props.subdomain.shortDescription} />
                     {Parser().parse(props.subdomain.description)}

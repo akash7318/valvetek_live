@@ -56,7 +56,7 @@ const Nav = (props) => {
                     <div className='row'>
                         <div className='col-lg-12'>
                             <div className='mainmenu-wrapper'>
-                                <div className='logo-box'> <Link to={'/'}><img src={'./images/' + siteInfo.logo} alt={siteInfo.compName} title={siteInfo.compName} /></Link> </div>
+                                <div className='logo-box'> <Link to={'/'}><img src={process.env.REACT_APP_BASE_URL+'images/' + siteInfo.logo} alt={siteInfo.compName} title={siteInfo.compName} /></Link> </div>
                                 <div className='Mainmenu'>
                                     {/* menu list appear here */}
                                     <MenuList data={props.data} />

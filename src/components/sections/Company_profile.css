@@ -3,6 +3,9 @@
     position: relative;
     overflow: hidden;
 }
+.about-section h2{
+    font-size: 25px;
+}
 .about-section .cstm-container{
     padding-left: 8%;
     padding-bottom: 6%;

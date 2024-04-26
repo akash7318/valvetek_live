@@ -9,6 +9,7 @@ import { useLocation } from 'react-router-dom';
 const Footer = () => {
     const [siteInfo, setSiteInfo] = useState([]);
     const { pathname } = useLocation();
+    const [whatsapp, setWhatsApp] = useState();
 
     // useEffect(() => {
     //     getSiteInfo();
@@ -24,6 +25,11 @@ const Footer = () => {
         result = await result.json();
         if (result.status) {
             setSiteInfo(result.siteInfo);
+
+            let whatsappLink = result.siteInfo.whatsapp.replace(" ", "");
+            whatsappLink = whatsappLink.replace("-", "");
+            whatsappLink = whatsappLink.replace("+91", "");
+            setWhatsApp("https://api.whatsapp.com/send?phone=" + whatsappLink);
         }
     }
 
@@ -108,6 +114,13 @@ const Footer = () => {
                 </div>
             </footer>
             <div className='Scroll-top-btn'> <ScrollToTop smooth /></div>
+
+           {/* whatsapp btn */}
+            <div className="what-app">
+                <a href={whatsapp} target="_blank" className="btn-whatsapp-pulse btn-whatsapp-pulse-border">
+                    <i className="fab fa-whatsapp"></i>
+                </a>
+            </div>
         </>
     )
 }

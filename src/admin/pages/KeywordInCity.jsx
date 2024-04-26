@@ -32,12 +32,14 @@ function KeywordInCity() {
     }, []);
 
     const getKeywordInCity = async () => {
-        let result = await fetch(process.env.REACT_APP_BASE_URL + "admin/keywordInCity");
+        let result = await fetch(process.env.REACT_APP_BASE_URL + "adminKeywordInCity");
         result = await result.json();
         if (result.status) {
             setShortDescription(result.keywordInCity.shortDescription);
             setDefaultDescription(result.keywordInCity.description);
+            setDescription(result.keywordInCity.description);
             setDefaultExtraDescription(result.keywordInCity.extraDescription);
+            setExtraDescription(result.keywordInCity.extraDescription);
             setMetaTitle(result.keywordInCity.metaTitle);
             setMetaDescription(result.keywordInCity.metaDescription);
             setMetaKeywords(result.keywordInCity.metaKeywords);
@@ -54,7 +56,7 @@ function KeywordInCity() {
         data.append('description', description);
         data.append('extraDescription', extraDescription);
 
-        const url = process.env.REACT_APP_BASE_URL + "admin/updateKeywordInCity";
+        const url = process.env.REACT_APP_BASE_URL + "adminUpdateKeywordInCity";
 
         fetch(
             url,

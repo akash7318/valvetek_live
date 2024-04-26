@@ -25,7 +25,7 @@ const BannerData = () => {
     }
 
     const getBanner = async (id) => {
-        let result = await fetch(`${process.env.REACT_APP_BASE_URL}admin/banner/` + id)
+        let result = await fetch(`${process.env.REACT_APP_BASE_URL}adminBanner/` + id)
         result = await result.json();
 
         if (result.status) {
@@ -56,7 +56,7 @@ const BannerData = () => {
             data.append("id", params._id);
         }
 
-        const url = `${process.env.REACT_APP_BASE_URL}admin/saveBanner`;
+        const url = `${process.env.REACT_APP_BASE_URL}adminSaveBanner`;
 
         let result = await fetch(
             url,

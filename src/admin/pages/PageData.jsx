@@ -32,7 +32,7 @@ function PageData() {
     const [metaKeywords, setMetaKeywords] = useState('');
 
     const getPage = async (id) => {
-        let result = await fetch(process.env.REACT_APP_BASE_URL + "admin/page/" + id)
+        let result = await fetch(process.env.REACT_APP_BASE_URL + "adminPage/" + id)
         result = await result.json();
 
         if (result.status) {
@@ -66,7 +66,7 @@ function PageData() {
         }
 
         let result = await fetch(
-            process.env.REACT_APP_BASE_URL + "admin/savePage",
+            process.env.REACT_APP_BASE_URL + "adminSavePage",
             {
                 method: "POST",
                 body: data

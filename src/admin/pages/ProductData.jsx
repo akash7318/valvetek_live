@@ -32,7 +32,7 @@ function ProductData() {
     const [metaKeywords, setMetaKeywords] = useState('');
 
     const getProduct = async (id) => {
-        let result = await fetch(process.env.REACT_APP_BASE_URL + "admin/product/" + id)
+        let result = await fetch(process.env.REACT_APP_BASE_URL + "adminProduct/" + id)
         result = await result.json();
 
         if (result.status) {
@@ -66,7 +66,7 @@ function ProductData() {
         }
 
         let result = await fetch(
-            process.env.REACT_APP_BASE_URL + "admin/saveProduct",
+            process.env.REACT_APP_BASE_URL + "adminSaveProduct",
             {
                 method: "POST",
                 body: data

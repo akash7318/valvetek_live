@@ -93,17 +93,17 @@ function SiteLayout() {
                         ?
                         locations.map((value, index) =>
                             <>
-                                <Route key={index} path={'/' + value.parantSlug} element={<OurPresenceInCity slug={value.parantSlug} />} />
+                                <Route key={index} path={'/' + value.parentSlug} element={<OurPresenceInCity slug={value.parentSlug} />} />
                                 {
                                     products
                                         ?
                                         products.map((item, key) =>
                                             <Route
                                                 key={key}
-                                                path={'/' + value.parantSlug + '/' + item.slug}
+                                                path={'/' + value.parentSlug + '/' + item.slug}
                                                 element={
                                                     <KeywordInCity
-                                                        locationSlug={value.parantSlug}
+                                                        locationSlug={value.parentSlug}
                                                         productSlug={item.slug}
                                                     />
                                                 }

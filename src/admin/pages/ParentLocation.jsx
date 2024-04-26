@@ -10,23 +10,23 @@ import TableCommon from '../components/TableCommon';
 import DynamicTable from '../components/DynamicTable';
 import DeleteBtn from '../components/DeleteBtn';
 
-function ParantLocation() {
+function ParentLocation() {
 
-    const [parantLocations, setParantLocation] = useState([]);
+    const [parentLocations, setParentLocation] = useState([]);
 
     const render = () => {
-        getParantLocations();
+        getParentLocations();
     }
 
     useEffect(() => {
-        getParantLocations();
+        getParentLocations();
     }, []);
 
-    const getParantLocations = async () => {
-        let result = await fetch(`${process.env.REACT_APP_BASE_URL}admin/parantLocations`);
+    const getParentLocations = async () => {
+        let result = await fetch(`${process.env.REACT_APP_BASE_URL}adminParentLocations`);
         result = await result.json();
         if (result.status) {
-            setParantLocation(result.parantLocations);
+            setParentLocation(result.parentLocations);
         }
     }
 
@@ -38,15 +38,15 @@ function ParantLocation() {
     ];
 
     let td = [];
-    parantLocations.map((value, index) =>
+    parentLocations.map((value, index) =>
         td.push(
             [
                 index + 1,
                 value.name,
-                <SwitchBtn checked={value.isActive} url={process.env.REACT_APP_BASE_URL + "admin/changeActiveParantLocation/" + value._id} />,
+                <SwitchBtn checked={value.isActive} url={process.env.REACT_APP_BASE_URL + "adminChangeActiveParentLocation/" + value._id} />,
                 <div className='d-flex gap-2 justify-content-center'>
-                    <Link to={"/admin/parantLocation/data/" + value._id} className='btn btn-primary'>Edit</Link>
-                    <DeleteBtn deleteAndRender={render} url={process.env.REACT_APP_BASE_URL + "admin/deleteParantLocation/" + value._id} />
+                    <Link to={"/admin/parentLocation/data/" + value._id} className='btn btn-primary'>Edit</Link>
+                    <DeleteBtn deleteAndRender={render} url={process.env.REACT_APP_BASE_URL + "adminDeleteParentLocation/" + value._id} />
                 </div>
             ]
         )
@@ -61,7 +61,7 @@ function ParantLocation() {
                 </div>
                 <div className='content_box'>
                     <div className='content_container'>
-                        <BreadCrumb pageName="Parant Locations" link="/admin/parantLocation/data" btnName="Add Parant Location" />
+                        <BreadCrumb pageName="Parent Locations" link="/admin/parentLocation/data" btnName="Add Parent Location" />
                         <TableCommon tblData={<DynamicTable thData={th} tdData={td} />} />
                     </div>
                 </div>
@@ -70,4 +70,4 @@ function ParantLocation() {
     )
 }
 
-export default ParantLocation
+export default ParentLocation

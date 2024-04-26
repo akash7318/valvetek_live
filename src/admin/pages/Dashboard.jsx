@@ -21,7 +21,7 @@ function Dashboard() {
     }, []);
 
     const getDashboard = async () => {
-        let result = await fetch(process.env.REACT_APP_BASE_URL + "admin/dashboard");
+        let result = await fetch(process.env.REACT_APP_BASE_URL + "adminDashboard");
         result = await result.json();
         setDashboard(result);
     }
@@ -76,10 +76,10 @@ function Dashboard() {
             'link': '/admin/location'
         },
         {
-            'title': 'Parant Location',
-            'heading': dashboard.parantLocationCount,
+            'title': 'Parent Location',
+            'heading': dashboard.parentLocationCount,
             'icon': <LocationOnIcon className='fs-1' />,
-            'link': '/admin/parantLocation'
+            'link': '/admin/parentLocation'
         }
     ];
 

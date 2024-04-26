@@ -32,12 +32,14 @@ function KeywordInCity() {
     }, []);
 
     const getKeywordInCity = async () => {
-        let result = await fetch(process.env.REACT_APP_BASE_URL + "admin/ourPresenceInCity");
+        let result = await fetch(process.env.REACT_APP_BASE_URL + "adminOurPresenceInCity");
         result = await result.json();
         if (result.status) {
             setShortDescription(result.ourPresenceInCity.shortDescription);
             setDefaultDescription(result.ourPresenceInCity.description);
+            setDescription(result.ourPresenceInCity.description);
             setDefaultExtraDescription(result.ourPresenceInCity.extraDescription);
+            setExtraDescription(result.ourPresenceInCity.extraDescription);
             setMetaTitle(result.ourPresenceInCity.metaTitle);
             setMetaDescription(result.ourPresenceInCity.metaDescription);
             setMetaKeywords(result.ourPresenceInCity.metaKeywords);
@@ -54,7 +56,7 @@ function KeywordInCity() {
         data.append('description', description);
         data.append('extraDescription', extraDescription);
 
-        const url = process.env.REACT_APP_BASE_URL + "admin/updateOurPresenceInCity";
+        const url = process.env.REACT_APP_BASE_URL + "adminUpdateOurPresenceInCity";
 
         fetch(
             url,
@@ -101,7 +103,9 @@ function KeywordInCity() {
                                 <div className='col-md-12'>
                                     <AddDataEditor
                                         Label="Description"
-                                        Editor={<Jodit name="description" value={defaultDescription} description={setContent} />}
+                                        Editor={<Jodit name="description" 
+                                        value={defaultDescription}
+                                         description={setContent} />}
                                     />
                                 </div>
                                 <div className='col-md-12'>

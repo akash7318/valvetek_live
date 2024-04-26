@@ -18,8 +18,8 @@ import OurPresenceInCity from '../admin/pages/OurPresenceInCity';
 import PrivateComponent from '../components/PrivateComponent';
 import Location from '../admin/pages/Location';
 import LocationData from '../admin/pages/LocationData';
-import ParantLocation from '../admin/pages/ParantLocation';
-import ParantLocationData from '../admin/pages/ParantLocationData';
+import ParentLocation from '../admin/pages/ParentLocation';
+import ParentLocationData from '../admin/pages/ParentLocationData';
 
 function SiteLayout() {
     return (
@@ -51,9 +51,9 @@ function SiteLayout() {
                 <Route path='/admin/location/data' element={<LocationData />} />
                 <Route path='/admin/location/data/:_id' element={<LocationData />} />
 
-                <Route path='/admin/parantLocation' element={<ParantLocation />} />
-                <Route path='/admin/parantLocation/data' element={<ParantLocationData />} />
-                <Route path='/admin/parantLocation/data/:_id' element={<ParantLocationData />} />
+                <Route path='/admin/parentLocation' element={<ParentLocation />} />
+                <Route path='/admin/parentLocation/data' element={<ParentLocationData />} />
+                <Route path='/admin/parentLocation/data/:_id' element={<ParentLocationData />} />
             </Route>
 
             <Route path='/login' element={<Login />} />

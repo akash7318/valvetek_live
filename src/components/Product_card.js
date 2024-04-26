@@ -32,7 +32,7 @@ const Product_card = (props) => {
       animate={control}
       className='product-card'>
       <div className='product-img'>
-        <img className='w-100' loading='lazy' src={"./images/products/" + props.productImg} alt={props.productName} title={props.productName} /></div>
+        <img className='w-100' loading='lazy' src={process.env.REACT_APP_BASE_URL+"images/products/" + props.productImg} alt={props.productName} title={props.productName} /></div>
       <div className='product-name-box'>
         {/* <span className='product-name-title' >Catogery</span> */}
         <Link to={props.productSlug} className='product-name'>{props.productName}</Link>

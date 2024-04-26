@@ -15,7 +15,7 @@ const LocationData = () => {
     const [parantLocations, setParantLocations] = useState([]);
 
     const getLocation = async (id) => {
-        let result = await fetch(`${process.env.REACT_APP_BASE_URL}admin/location/` + id)
+        let result = await fetch(`${process.env.REACT_APP_BASE_URL}adminLocation/` + id)
         result = await result.json();
 
         if (result.status) {
@@ -26,7 +26,7 @@ const LocationData = () => {
     }
 
     const getParantLocations = async () => {
-        let result = await fetch(`${process.env.REACT_APP_BASE_URL}admin/parantLocations`);
+        let result = await fetch(`${process.env.REACT_APP_BASE_URL}adminParantLocations`);
         result = await result.json();
         if (result.status) {
             setParantLocations(result.parantLocations);
@@ -50,7 +50,7 @@ const LocationData = () => {
             data.append("id", params._id);
         }
 
-        const url = `${process.env.REACT_APP_BASE_URL}admin/saveLocation`;
+        const url = `${process.env.REACT_APP_BASE_URL}adminSaveLocation`;
 
         let result = await fetch(
             url,

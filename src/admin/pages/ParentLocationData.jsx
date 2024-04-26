@@ -6,24 +6,24 @@ import '../Admin.css';
 import BreadCrumb from '../components/BreadCrumb';
 import AddData from '../components/AddData';
 
-const ParantLocationData = () => {
+const ParentLocationData = () => {
     const navigate = useNavigate();
     const params = useParams();
 
     const [name, setName] = useState('');
 
-    const getParantLocation = async (id) => {
-        let result = await fetch(`${process.env.REACT_APP_BASE_URL}admin/parantLocation/` + id)
+    const getParentLocation = async (id) => {
+        let result = await fetch(`${process.env.REACT_APP_BASE_URL}adminParentLocation/` + id)
         result = await result.json();
 
         if (result.status) {
-            setName(result.parantLocation.name);
+            setName(result.parentLocation.name);
         }
     }
 
     useEffect(() => {
         if (params._id) {
-            getParantLocation(params._id);
+            getParentLocation(params._id);
         }
     }, []);
 
@@ -38,7 +38,7 @@ const ParantLocationData = () => {
             data.append("id", params._id);
         }
 
-        const url = `${process.env.REACT_APP_BASE_URL}admin/saveParantLocation`;
+        const url = `${process.env.REACT_APP_BASE_URL}adminSaveParentLocation`;
 
         let result = await fetch(
             url,
@@ -50,7 +50,7 @@ const ParantLocationData = () => {
 
         result = await result.json();
         if (result.status) {
-            navigate('/admin/parantLocation');
+            navigate('/admin/parentLocation');
         }
     }
     return (
@@ -62,11 +62,11 @@ const ParantLocationData = () => {
                 </div>
                 <div className='content_box'>
                     <div className='content_container'>
-                        <BreadCrumb pageName="Add Parant Location" link="/admin/parantLocation" btnName="Manage Parant Locations" />
+                        <BreadCrumb pageName="Add Parent Location" link="/admin/parentLocation" btnName="Manage Parent Locations" />
                         <form onSubmit={submitHandler} className='add_data'>
                             <div className='row'>
                                 <div className='col-12'>
-                                    <AddData changeFunction={setName} Label="Parant Location" inputType="text" Placeholder="Name" value={name} name="name" />
+                                    <AddData changeFunction={setName} Label="Parent Location" inputType="text" Placeholder="Name" value={name} name="name" />
                                 </div>
                                 <div className='col-12'>
                                     <div className='row justify-content-end'>
@@ -82,4 +82,4 @@ const ParantLocationData = () => {
     )
 }
 
-export default ParantLocationData
+export default ParentLocationData

@@ -37,7 +37,7 @@ const Why_choose_us = () => {
 
   return (
     <section className="sect-space why-sect">
-      <img className='shape-right anim-up-down' src="./images/shapes/why-shape.png" alt="" />
+      <img className='shape-right anim-up-down' src={process.env.REACT_APP_BASE_URL+"images/shapes/why-shape.png"} alt="" />
       {/* <h1 className='text-center'><CountUp end={100} enableScrollSpy scrollSpyOnce="true" /></h1> */}
       <div className='container'>
         <div className='row m-b40'>

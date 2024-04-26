@@ -28,8 +28,8 @@ const Company_profile = (props) => {
   return (
     <>
       <section className="about-section">
-        <div className='about-left-shape anim-up-down'><img src="images/shapes/about-left-shape.jpg" alt="" /></div>
-        <div className='about-right-shape anim-scale'><img src="images/shapes/about-right-shape.jpg" alt="" /></div>
+        <div className='about-left-shape anim-up-down'><img src={process.env.REACT_APP_BASE_URL+"images/shapes/about-left-shape.jpg"} alt="" /></div>
+        <div className='about-right-shape anim-scale'><img src={process.env.REACT_APP_BASE_URL+"images/shapes/about-right-shape.jpg"} alt="" /></div>
         <div className='container'>
           <div className='row'>
             <div
@@ -60,15 +60,15 @@ const Company_profile = (props) => {
               animate={control}
               className='col-lg-6 position-relative'>
               <div className='abt-text-circle'>
-                <img className='img-one' loading='lazy' src="images/shapes/text-curved.png" alt="" />
-                <img className='img-two' loading='lazy' src="images/shapes/circle-shape.svg" alt="" />
+                <img className='img-one' loading='lazy' src={process.env.REACT_APP_BASE_URL+"images/shapes/text-curved.png"} alt="" />
+                <img className='img-two' loading='lazy' src={process.env.REACT_APP_BASE_URL+"images/shapes/circle-shape.svg"} alt="" />
               </div>
               <div className='abt-shape anim-left-right'><img loading='lazy' src="images/shapes/service-left-shape.svg" alt="" /></div>
               <div className='row h-100 align-items-end'>
                 <div className='abt-left-img'>
                   <img className='w-100' loading='lazy' src="images/img/about-2.jpg" alt="" />
                 </div>
-                <img className='w-50' loading='lazy' src={"./images/pages/" + props.pageData.img} alt={props.pageData.shortDescription} title={props.pageData.shortDescription} />
+                <img className='w-50' loading='lazy' src={process.env.REACT_APP_BASE_URL+"images/pages/" + props.pageData.img} alt={props.pageData.shortDescription} title={props.pageData.shortDescription} />
               </div>
             </motion.div>
           </div>

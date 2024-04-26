@@ -31,7 +31,7 @@ function PromotionalCategoryData() {
     const [metaKeywords, setMetaKeywords] = useState('');
 
     const getPromotionalCategory = async (id) => {
-        let result = await fetch(process.env.REACT_APP_BASE_URL + "admin/promotionalCategory/" + id)
+        let result = await fetch(process.env.REACT_APP_BASE_URL + "adminPromotionalCategory/" + id)
         result = await result.json();
 
         if (result.status) {
@@ -65,7 +65,7 @@ function PromotionalCategoryData() {
         }
 
         let result = await fetch(
-            process.env.REACT_APP_BASE_URL + "admin/savePromotionalCategory",
+            process.env.REACT_APP_BASE_URL + "adminSavePromotionalCategory",
             {
                 method: "POST",
                 body: data

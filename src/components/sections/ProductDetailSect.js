@@ -52,7 +52,7 @@ const ProductDetailSect = (props) => {
             <div className='container'>
                 <div className=''>
                     <div className='floated-pd'>
-                        <img className='pd-img-main' src={"./images/products/" + product.img} alt={product.name} title={product.name} />
+                        <img className='pd-img-main' src={process.env.REACT_APP_BASE_URL+"images/products/" + product.img} alt={product.name} title={product.name} />
                     </div>
                     {/* <motion.div 
                     ref={ref}

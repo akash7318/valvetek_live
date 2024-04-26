@@ -28,7 +28,7 @@ function Subdomain(props) {
     return (
         <>
             <HelmetComp data={subdomain} />
-            <Nav data={subdomain} />
+            <Nav />
             <BreadCrumb name={subdomain.shortDescription} />
             <SubdomainSec subdomain={subdomain} />
             <ContactSect />

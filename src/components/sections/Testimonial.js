@@ -76,7 +76,7 @@ const Testimonial = () => {
                                 initial="hidden"
                                 animate={control}
                                 className='Testimonial-box d-flex'>
-                                <img className='testi-img' src="./images/img/testi-img.jpg" alt="" />
+                                <img className='testi-img' src={process.env.REACT_APP_BASE_URL+"images/img/testi-img.jpg"} alt="" />
                                 <div className='reviews-box'>
                                     <p className='testi-words'>“ After being forced to move twice within five years, our customers had a hard time finding us and our sales plummeted. The Trydus Co. not only revitalized our brand, but saved our nearly 100-year-old family business from the brink of ruin.”</p>
                                     <div className='testi-name-box'>

@@ -23,7 +23,7 @@ function Location() {
     }, []);
 
     const getLocations = async () => {
-        let result = await fetch(`${process.env.REACT_APP_BASE_URL}admin/locations`);
+        let result = await fetch(`${process.env.REACT_APP_BASE_URL}adminLocations`);
         result = await result.json();
         if (result.status) {
             setLocations(result.locations);
@@ -43,10 +43,10 @@ function Location() {
             [
                 index + 1,
                 value.name,
-                <SwitchBtn checked={value.isActive} url={process.env.REACT_APP_BASE_URL + "admin/changeActiveLocation/" + value._id} />,
+                <SwitchBtn checked={value.isActive} url={process.env.REACT_APP_BASE_URL + "adminChangeActiveLocation/" + value._id} />,
                 <div className='d-flex gap-2 justify-content-center'>
                     <Link to={"/admin/location/data/" + value._id} className='btn btn-primary'>Edit</Link>
-                    <DeleteBtn deleteAndRender={render} url={process.env.REACT_APP_BASE_URL + "admin/deleteLocation/" + value._id} />
+                    <DeleteBtn deleteAndRender={render} url={process.env.REACT_APP_BASE_URL + "adminDeleteLocation/" + value._id} />
                 </div>
             ]
         )

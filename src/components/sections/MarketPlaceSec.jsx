@@ -31,8 +31,8 @@ function MarketPlaceSec(props) {
                             ?
                             locations.map((value, index) =>
                                 <>
-                                    <div key={index} className='col-12'>
-                                        <MarketBtn Href={'/' + value.parantSlug} locationName={value.parantName} />
+                                    <div key={index} className='col-lg-3 col-md-4 col-sm-6 m-b20'>
+                                        <MarketBtn Href={'/' + value.parentSlug} locationName={value.parentName} />
                                     </div>
                                     {
                                         value.cities.map((value, index) =>
