@@ -26,7 +26,7 @@ function OurPresenceInCity(props) {
             <HelmetComp data={ourPresenceInCity} />
             <Nav data={{ slug: props.slug }} />
             <BreadCrumb name={ourPresenceInCity.shortDescription} />
-            <OurPresenceInCitySec data={ourPresenceInCity} />
+            <OurPresenceInCitySec data={ourPresenceInCity} hTwoTitle={ourPresenceInCity.shortDescription}/>
             <Footer />
         </>
     )

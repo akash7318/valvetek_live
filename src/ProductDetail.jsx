@@ -31,7 +31,7 @@ const ProductDetail = (props) => {
       <HelmetComp data={product} />
       <Nav />
       <BreadCrumb name={product.name} />
-      <ProductDetailSect slug={props.slug} />
+      <ProductDetailSect slug={props.slug} hTwoTitle={product.shortDescription}/>
       <ProductSlider />
       <ContactSect />
       <Footer />

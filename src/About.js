@@ -32,7 +32,7 @@ const About = () => {
       <Nav />
       <HelmetComp data={aboutData} />
       <BreadCrumb name={aboutData.name} />
-      <Company_profile pageData={aboutData} />
+      <Company_profile pageData={aboutData} hTwoTitle={aboutData.shortDescription}/>
       <ContactSect />
       <Footer />
     </>

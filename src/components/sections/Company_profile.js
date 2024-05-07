@@ -35,7 +35,7 @@ const Company_profile = (props) => {
             <div
               className='col-lg-6'>
               <div>
-                <Section_title smTitle="About Company" homeTitle={props.homeTitle} mainTitle={props.pageData.shortDescription} />
+                <Section_title smTitle="About Company" homeTitle={props.homeTitle} hTwoTitle={props.hTwoTitle} mainTitle={props.pageData.shortDescription} />
               </div>
               {Parser().parse(props.pageData.description)}
               {Parser().parse(props.pageData.extraDescription)}

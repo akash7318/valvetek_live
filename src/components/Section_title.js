@@ -1,17 +1,19 @@
 import React from 'react'
+import { Parser } from 'html-to-react'
 
 const Section_title = (props) => {
+    let html;
+    if (props.homeTitle) {
+        html = "<h1 className='sect-title'>"+props.homeTitle+"</h1>";
+    } else if (props.hTwoTitle) {
+        html = "<h2 className='sect-title'>"+props.hTwoTitle+"</h2>";
+    } else {
+        html = "<p className='sect-title'>"+props.mainTitle+"</p>";
+    }
     return (
         <>
             <span className='sm-title'>{props.smTitle}</span>
-            {
-                props.homeTitle
-                    ?
-                    <h1 className='sect-title'>{props.homeTitle}</h1>
-                    :
-                    <h2 className='sect-title'>{props.mainTitle}</h2>
-
-            }
+            {Parser().parse(html)}
         </>
     )
 }

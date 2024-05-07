@@ -114,7 +114,7 @@ const ProductDetailSect = (props) => {
                             </Swiper>
                         </div>
                     </motion.div> */}
-                    <Section_title smTitle="Product Details" mainTitle={product.shortDescription} />
+                    <Section_title smTitle="Product Details" hTwoTitle={props.hTwoTitle} mainTitle={product.shortDescription} />
                     {Parser().parse(product.description)}
                     {Parser().parse(product.extraDescription)}
                 </div>
