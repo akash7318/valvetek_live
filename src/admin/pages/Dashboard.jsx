@@ -11,6 +11,7 @@ import GradingIcon from '@mui/icons-material/Grading';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 
 function Dashboard() {
 
@@ -80,6 +81,12 @@ function Dashboard() {
             'heading': dashboard.parentLocationCount,
             'icon': <LocationOnIcon className='fs-1' />,
             'link': '/admin/parentLocation'
+        },
+        {
+            'title': 'Leads',
+            'heading': dashboard.leadCount,
+            'icon': <LeaderboardIcon className='fs-1' />,
+            'link': '/admin/lead'
         }
     ];
 

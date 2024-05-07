@@ -18,8 +18,6 @@ function HelmetComp(props) {
         getSiteInfo();
     }, []);
 
-    console.log(siteInfo.googleAnalytic);
-
     return (
         <Helmet>
             <link href={process.env.REACT_APP_BASE_URL+'images/' + siteInfo.favicon} rel="shortcut icon" type="image/png" />

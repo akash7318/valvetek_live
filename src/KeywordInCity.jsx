@@ -5,6 +5,7 @@ import Nav from './components/nav/Nav';
 import KeywordInCitySec from './components/sections/KeywordInCitySec'
 import { useParams } from 'react-router-dom';
 import Footer from './components/sections/Footer';
+import ContactSect from './components/sections/ContactSect';
 
 function KeywordInCity(props) {
 
@@ -30,6 +31,7 @@ function KeywordInCity(props) {
             <Nav data={{ slug: props.locationSlug }} />
             <BreadCrumb name={keywordInCity.shortDescription} hTwoTitle={keywordInCity.shortDescription}/>
             <KeywordInCitySec data={keywordInCity} />
+            <ContactSect />
             <Footer />
         </>
     )

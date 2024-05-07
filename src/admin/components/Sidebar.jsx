@@ -13,6 +13,7 @@ import ApartmentIcon from '@mui/icons-material/Apartment';
 import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 // import AddBusinessIcon from '@mui/icons-material/AddBusiness';
+import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 
 function Sidebar() {
     const location = useLocation();
@@ -86,6 +87,13 @@ function Sidebar() {
             link: '/admin/location',
             hasChildren: false,
             addClass: location.pathname === "/admin/location" ? "active mb-2 border rounded" : ""
+        },
+        {
+            name: 'Lead',
+            icon: <LeaderboardIcon />,
+            link: '/admin/lead',
+            hasChildren: false,
+            addClass: location.pathname === "/admin/lead" ? "active mb-2 border rounded" : ""
         },
        
         // {

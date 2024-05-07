@@ -4,6 +4,7 @@ import OurPresenceInCitySec from './components/sections/OurPresenceInCitySec';
 import HelmetComp from './components/HelmetComp';
 import Nav from './components/nav/Nav';
 import Footer from './components/sections/Footer';
+import ContactSect from './components/sections/ContactSect';
 
 function OurPresenceInCity(props) {
 
@@ -27,6 +28,7 @@ function OurPresenceInCity(props) {
             <Nav data={{ slug: props.slug }} />
             <BreadCrumb name={ourPresenceInCity.shortDescription} />
             <OurPresenceInCitySec data={ourPresenceInCity} hTwoTitle={ourPresenceInCity.shortDescription}/>
+            <ContactSect />
             <Footer />
         </>
     )
