@@ -22,9 +22,9 @@ const SitemapSect = () => {
     <>
       <section className='sect-space p-t30'>
         <div className='container'>
-          <div className='text-center'>
+          {/* <div className='text-center'>
             <Section_title smTitle='Sitemap' />
-          </div>
+          </div> */}
           <div className='row m-t30'>
             {
               sitemaps

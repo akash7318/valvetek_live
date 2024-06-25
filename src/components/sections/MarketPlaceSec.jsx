@@ -9,9 +9,9 @@ function MarketPlaceSec(props) {
     return (
         <section className='sect-space p-t30'>
             <div className='container'>
-                <div className='text-center'>
+                {/* <div className='text-center'>
                     <Section_title smTitle='Market Place' />
-                </div>
+                </div> */}
                 <div className='row m-t30'>
                     {
                         promotionalCategories

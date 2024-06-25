@@ -40,7 +40,7 @@ const Company_profile = (props) => {
               {Parser().parse(props.pageData.description)}
               {Parser().parse(props.pageData.extraDescription)}
               <div className='row align-items-center mt-4'>
-                <Btn_link Href="/" btnName="Company Profile" />
+                <Btn_link Href="/company-profile" btnName="Company Profile" />
                 {/* <div className="abt-contact-content ">
                   <div className="contact-icon">
                     <i className="fa-solid fa-phone-volume"></i>

@@ -24,6 +24,8 @@ function HelmetComp(props) {
             <title>{props.data.metaTitle}</title>
             <meta name="keywords" content={props.data.metaKeywords} />
             <meta name="description" content={props.data.metaDescription} />
+            <meta name="author" content={siteInfo.compName} />
+            <link rel="canonical" href={window.location.href} />
             {Parser().parse(siteInfo.googleAnalytic)}
         </Helmet>
     )
